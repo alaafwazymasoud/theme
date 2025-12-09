@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Paris Getaway - Wanderlust</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../dist/output.css" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 top-0 left-0 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white tracking-tight flex items-center gap-2 z-50 relative">
+                <ion-icon name="airplane"></ion-icon> Wanderlust
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8 text-white/90 text-sm font-medium">
+                <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                <a href="index.html#tours" class="hover:text-white transition-colors">Tours</a>
+                <a href="index.html#destinations" class="hover:text-white transition-colors">Destinations</a>
+                <a href="index.html#blog" class="hover:text-white transition-colors">Blog</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#" class="text-white/90 font-medium text-sm hover:text-white">Log in</a>
+                <a href="#" class="bg-white/10 backdrop-blur-md text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-white hover:text-blue-600 transition-all border border-white/20">Sign up</a>
+            </div>
+
+             <!-- Mobile Menu Button -->
+             <div class="md:hidden flex items-center z-50">
+                <button id="mobile-menu-btn" class="text-white text-3xl focus:outline-none">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+     <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 md:hidden">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-4xl focus:outline-none">
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+        <a href="index.html" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Home</a>
+        <a href="index.html#tours" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Tours</a>
+        <a href="index.html#destinations" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Destinations</a>
+        <a href="index.html#blog" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Blog</a>
+        <a href="#" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Log in</a>
+        <a href="#" class="mobile-link px-8 py-3 bg-blue-600 rounded-full text-white text-xl font-bold">Sign up</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="relative h-[60vh] min-h-[500px]">
+        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1920" alt="Paris" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/30"></div>
+
+        <div class="absolute bottom-0 left-0 w-full pb-16 pt-32">
+            <div class="container mx-auto px-6">
+                 <!-- Breadcrumb -->
+                 <div class="flex items-center gap-2 text-white/70 text-sm mb-4">
+                    <a href="index.html" class="hover:text-white">Home</a>
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                    <a href="#" class="hover:text-white">France</a>
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                    <span class="text-white">Paris</span>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-between items-end gap-6">
+                    <div>
+                        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Romantic Paris Getaway</h1>
+                        <div class="flex items-center gap-6 text-white/90 text-sm md:text-base">
+                            <div class="flex items-center gap-1">
+                                <ion-icon name="location" class="text-orange-400"></ion-icon> Paris, France
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <ion-icon name="star" class="text-yellow-400"></ion-icon> 4.9 (128 Reviews)
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <ion-icon name="time" class="text-blue-400"></ion-icon> 5 Days / 4 Nights
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hidden md:block">
+                        <button class="bg-white text-gray-900 w-12 h-12 rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-lg">
+                            <ion-icon name="share-social-outline" class="text-xl"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container mx-auto px-6 py-12 relative">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+
+            <!-- Left Column: Details -->
+            <div class="lg:col-span-2 space-y-12">
+
+                <!-- About -->
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">About this tour</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Immerse yourself in the magic of Paris with this exclusive 5-day getaway.
+                        Designed for couples and romance seekers, this tour takes you beyond the
+                        Eiffel Tower to discover hidden gems, charming cafes, and world-class art.
+                        Enjoy a private sunset cruise on the Seine, a guided tour of the Louvre after hours,
+                        and an intimate wine tasting session in Montmartre.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Accommodations are provided in a boutique hotel in the heart of Le Marais,
+                        giving you the perfect base to explore the city's cobblestone streets and historic architecture.
+                    </p>
+                </section>
+
+                <!-- Highlights -->
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Highlights</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-2 gap-4">
+                        <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+                            <ion-icon name="boat-outline" class="text-blue-600 text-2xl mt-1"></ion-icon>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Seine Cruise</h4>
+                                <p class="text-sm text-gray-500">Private sunset boat ride.</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+                            <ion-icon name="restaurant-outline" class="text-orange-600 text-2xl mt-1"></ion-icon>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Gourmet Dining</h4>
+                                <p class="text-sm text-gray-500">Michelin-star dinner included.</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+                            <ion-icon name="camera-outline" class="text-purple-600 text-2xl mt-1"></ion-icon>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Photo Session</h4>
+                                <p class="text-sm text-gray-500">Professional photographer.</p>
+                            </div>
+                        </div>
+                         <div class="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+                            <ion-icon name="bed-outline" class="text-green-600 text-2xl mt-1"></ion-icon>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Luxury Stay</h4>
+                                <p class="text-sm text-gray-500">4-star boutique hotel.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Itinerary -->
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Itinerary</h2>
+                    <div class="space-y-6">
+                        <!-- Day 1 -->
+                        <div class="relative pl-8 border-l-2 border-blue-100 pb-2">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-sm"></div>
+                            <h3 class="font-bold text-gray-900 text-lg">Day 1: Arrival & Welcome Dinner</h3>
+                            <p class="text-gray-500 mt-2">Arrive at CDG Airport where a private car will take you to your hotel. Evening welcome dinner at a classic Parisian bistro.</p>
+                        </div>
+
+                        <!-- Day 2 -->
+                         <div class="relative pl-8 border-l-2 border-blue-100 pb-2">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-sm"></div>
+                            <h3 class="font-bold text-gray-900 text-lg">Day 2: The Icons of Paris</h3>
+                            <p class="text-gray-500 mt-2">Skip-the-line access to the Eiffel Tower and a guided walking tour of the Champs-Élysées. Afternoon tea at Ladurée.</p>
+                        </div>
+
+                         <!-- Day 3 -->
+                         <div class="relative pl-8 border-l-2 border-blue-100 pb-2">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-sm"></div>
+                            <h3 class="font-bold text-gray-900 text-lg">Day 3: Art & Culture</h3>
+                            <p class="text-gray-500 mt-2">Private tour of the Louvre Museum. Explore the artistic streets of Montmartre in the afternoon.</p>
+                        </div>
+
+                        <!-- Day 4 -->
+                         <div class="relative pl-8 border-l-2 border-blue-100 pb-2">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-sm"></div>
+                            <h3 class="font-bold text-gray-900 text-lg">Day 4: Versailles Day Trip</h3>
+                            <p class="text-gray-500 mt-2">A trip to the magnificent Palace of Versailles to see the Hall of Mirrors and the royal gardens.</p>
+                        </div>
+
+                         <!-- Day 5 -->
+                         <div class="relative pl-8 border-l-2 border-transparent">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-300 border-4 border-white shadow-sm"></div>
+                            <h3 class="font-bold text-gray-900 text-lg">Day 5: Departure</h3>
+                            <p class="text-gray-500 mt-2">Breakfast at the hotel and private transfer to the airport for your flight home.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Gallery -->
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Gallery</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 h-96">
+                        <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden cursor-pointer hover:opacity-95 transition-opacity">
+                            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=800" class="w-full h-full object-cover" alt="Paris 1">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden cursor-pointer hover:opacity-95 transition-opacity">
+                            <img src="https://images.unsplash.com/photo-1499856871940-b09fe69296ca?q=80&w=800" class="w-full h-full object-cover" alt="Paris 2">
+                        </div>
+                        <div class="rounded-2xl overflow-hidden cursor-pointer hover:opacity-95 transition-opacity">
+                            <img src="https://images.unsplash.com/photo-1500832333538-8372101e575d?q=80&w=800" class="w-full h-full object-cover" alt="Paris 3">
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column: Booking Form (Sticky) -->
+            <div class="lg:col-span-1">
+                <div class="sticky top-28 space-y-8">
+
+                    <!-- Booking Box -->
+                    <div class="bg-white rounded-3xl shadow-xl border border-gray-100 p-8">
+                        <div class="flex items-end gap-2 mb-6">
+                            <span class="text-3xl font-bold text-blue-600">$1,299</span>
+                            <span class="text-gray-500 mb-1">/ person</span>
+                        </div>
+
+                        <form class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Select Date</label>
+                                <div class="relative">
+                                    <input type="date" class="w-full pl-4 pr-4 py-3 bg-gray-50 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-100 outline-none text-gray-700 font-medium">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Guests</label>
+                                <select class="w-full px-4 py-3 bg-gray-50 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-100 outline-none text-gray-700 font-medium">
+                                    <option>1 Guest</option>
+                                    <option selected>2 Guests</option>
+                                    <option>3 Guests</option>
+                                    <option>4+ Guests</option>
+                                </select>
+                            </div>
+
+                            <!-- Price Breakdown -->
+                            <div class="pt-4 border-t border-gray-100 space-y-2">
+                                <div class="flex justify-between text-gray-600">
+                                    <span>$1,299 x 2 guests</span>
+                                    <span>$2,598</span>
+                                </div>
+                                <div class="flex justify-between text-gray-600">
+                                    <span>Service charge</span>
+                                    <span>$50</span>
+                                </div>
+                                <div class="flex justify-between text-gray-900 font-bold text-lg pt-2">
+                                    <span>Total</span>
+                                    <span>$2,648</span>
+                                </div>
+                            </div>
+
+                            <button type="button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-blue-500/30">
+                                Book Now
+                            </button>
+                        </form>
+
+                         <p class="text-center text-xs text-gray-400 mt-4">No credit card charged yet</p>
+                    </div>
+
+                    <!-- Contact Support -->
+                    <div class="bg-blue-50 rounded-3xl p-6 flex items-center gap-4 border border-blue-100">
+                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-600 shadow-sm">
+                            <ion-icon name="chatbubble-ellipses-outline" class="text-2xl"></ion-icon>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Need Help?</h4>
+                            <p class="text-sm text-gray-600">Call us at <a href="#" class="text-blue-600 font-semibold">+1 234 567 890</a></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Related Tours -->
+        <div class="mt-20 border-t border-gray-100 pt-16">
+            <h2 class="text-3xl font-bold text-gray-900 mb-8">You might also like</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                 <!-- Related Card 1 -->
+                 <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=800" alt="Italy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                         <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-bold text-blue-800 uppercase">Culture</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center gap-1 text-yellow-500 text-xs mb-2">
+                            <ion-icon name="star"></ion-icon> 4.7
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Cinque Terre Hiking</h3>
+                        <div class="flex items-baseline gap-1 mt-2">
+                            <span class="text-xs text-gray-500">from</span>
+                            <span class="text-base font-bold text-blue-600">$1,450</span>
+                        </div>
+                    </div>
+                </a>
+
+                 <!-- Related Card 2 -->
+                 <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1534008897995-27a23e859048?q=80&w=800" alt="Greece" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-bold text-orange-800 uppercase">Beach</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center gap-1 text-yellow-500 text-xs mb-2">
+                            <ion-icon name="star"></ion-icon> 4.9
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Greek Island Hopping</h3>
+                         <div class="flex items-baseline gap-1 mt-2">
+                            <span class="text-xs text-gray-500">from</span>
+                            <span class="text-base font-bold text-blue-600">$2,100</span>
+                        </div>
+                    </div>
+                </a>
+
+                 <!-- Related Card 3 -->
+                 <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=800" alt="Bali" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-bold text-green-800 uppercase">Nature</div>
+                    </div>
+                    <div class="p-4">
+                        <div class="flex items-center gap-1 text-yellow-500 text-xs mb-2">
+                            <ion-icon name="star"></ion-icon> 4.8
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Ubud Wellness Retreat</h3>
+                         <div class="flex items-baseline gap-1 mt-2">
+                            <span class="text-xs text-gray-500">from</span>
+                            <span class="text-base font-bold text-blue-600">$890</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 mt-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <a href="#" class="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
+                    <ion-icon name="airplane"></ion-icon> Wanderlust
+                </a>
+                <p class="text-sm text-gray-500">&copy; 2023 Wanderlust Inc. All rights reserved.</p>
+                <div class="flex space-x-4">
+                     <a href="#" class="text-gray-400 hover:text-white"><ion-icon name="logo-facebook"></ion-icon></a>
+                     <a href="#" class="text-gray-400 hover:text-white"><ion-icon name="logo-instagram"></ion-icon></a>
+                     <a href="#" class="text-gray-400 hover:text-white"><ion-icon name="logo-twitter"></ion-icon></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll Logic
+        const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-2');
+                navbar.querySelectorAll('a, span').forEach(el => {
+                    // check if element is inside nav and not special button
+                    if (el.closest('#navbar') && !el.classList.contains('bg-blue-600') && !el.classList.contains('bg-white/10')) {
+                        el.classList.remove('text-white', 'text-white/90');
+                        el.classList.add('text-gray-800');
+                    }
+                });
+                navbar.querySelector('.text-2xl').classList.remove('text-white');
+                navbar.querySelector('.text-2xl').classList.add('text-blue-600');
+
+                // Mobile menu button color change
+                if(mobileMenuBtn) {
+                     mobileMenuBtn.classList.remove('text-white');
+                     mobileMenuBtn.classList.add('text-gray-800');
+                }
+
+            } else {
+                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-2');
+                navbar.querySelectorAll('a, span').forEach(el => {
+                     if (el.closest('#navbar') && !el.classList.contains('bg-blue-600') && !el.classList.contains('bg-white/10')) {
+                        el.classList.add('text-white');
+                        el.classList.remove('text-gray-800');
+                     }
+                });
+                navbar.querySelector('.text-2xl').classList.add('text-white');
+                navbar.querySelector('.text-2xl').classList.remove('text-blue-600');
+
+                // Mobile menu button color reset
+                if(mobileMenuBtn) {
+                    mobileMenuBtn.classList.add('text-white');
+                    mobileMenuBtn.classList.remove('text-gray-800');
+                }
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        if(mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+            });
+        }
+
+        if(closeMenuBtn) {
+            closeMenuBtn.addEventListener('click', () => {
+                 mobileMenu.classList.add('translate-x-full');
+            });
+        }
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+    </script>
+</body>
+</html>
