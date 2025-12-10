@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="../dist/output.css" rel="stylesheet">
+    <!-- Embla Carousel & Custom Script -->
+    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+    <script src="js/carousel.js"></script>
     <!-- Ionicons for minimal icons -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -140,127 +143,144 @@
                     <h2 class="text-3xl font-bold text-gray-900 mb-2">Featured Tours</h2>
                     <p class="text-gray-500">Curated experiences for the discerning traveler.</p>
                 </div>
-                <a href="#" class="text-blue-600 font-semibold hover:text-blue-700 flex items-center gap-1 transition-colors">
-                    View All <ion-icon name="arrow-forward-outline"></ion-icon>
-                </a>
+                <div class="flex gap-4">
+                    <button class="embla__prev w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                        <ion-icon name="arrow-back-outline"></ion-icon>
+                    </button>
+                    <button class="embla__next w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                    </button>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Tour Card 1 -->
-                <a href="tour-details.html" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=800" alt="Paris" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-800 uppercase tracking-wide">Culture</div>
-                        <button class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-red-500 transition-colors">
-                            <ion-icon name="heart"></ion-icon>
-                        </button>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-1 text-yellow-500 text-sm mb-2">
-                            <ion-icon name="star"></ion-icon>
-                            <span class="font-bold text-gray-900">4.9</span>
-                            <span class="text-gray-400 font-normal">(128 reviews)</span>
+            <div class="embla overflow-hidden" id="featured-tours-carousel">
+                <div class="embla__viewport">
+                    <div class="embla__container flex -ml-8">
+                        <!-- Tour Card 1 -->
+                        <div class="embla__slide flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%] min-w-0 pl-8">
+                            <a href="tour-details.html" class="block group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full">
+                                <div class="relative h-64 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=800" alt="Paris" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-800 uppercase tracking-wide">Culture</div>
+                                    <button class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-red-500 transition-colors">
+                                        <ion-icon name="heart"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="p-5">
+                                    <div class="flex items-center gap-1 text-yellow-500 text-sm mb-2">
+                                        <ion-icon name="star"></ion-icon>
+                                        <span class="font-bold text-gray-900">4.9</span>
+                                        <span class="text-gray-400 font-normal">(128 reviews)</span>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Romantic Paris Getaway</h3>
+                                    <p class="text-gray-500 text-sm mb-4 line-clamp-2">Experience the city of lights with exclusive dinners and tours.</p>
+                                    <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                                        <div class="text-gray-500 text-sm flex items-center gap-1">
+                                            <ion-icon name="time-outline"></ion-icon> 5 Days
+                                        </div>
+                                        <div class="flex items-baseline gap-1">
+                                            <span class="text-xs text-gray-500">from</span>
+                                            <span class="text-lg font-bold text-blue-600">$1,299</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Romantic Paris Getaway</h3>
-                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Experience the city of lights with exclusive dinners and tours.</p>
-                        <div class="flex justify-between items-center border-t border-gray-100 pt-4">
-                            <div class="text-gray-500 text-sm flex items-center gap-1">
-                                <ion-icon name="time-outline"></ion-icon> 5 Days
-                            </div>
-                            <div class="flex items-baseline gap-1">
-                                <span class="text-xs text-gray-500">from</span>
-                                <span class="text-lg font-bold text-blue-600">$1,299</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
 
-                <!-- Tour Card 2 -->
-                <a href="tour-details.html" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=800" alt="Santorini" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-orange-600 uppercase tracking-wide">Beach</div>
-                        <button class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-red-500 transition-colors">
-                            <ion-icon name="heart"></ion-icon>
-                        </button>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-1 text-yellow-500 text-sm mb-2">
-                            <ion-icon name="star"></ion-icon>
-                            <span class="font-bold text-gray-900">4.8</span>
-                            <span class="text-gray-400 font-normal">(85 reviews)</span>
+                        <!-- Tour Card 2 -->
+                        <div class="embla__slide flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%] min-w-0 pl-8">
+                            <a href="tour-details.html" class="block group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full">
+                                <div class="relative h-64 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=800" alt="Santorini" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-orange-600 uppercase tracking-wide">Beach</div>
+                                    <button class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-red-500 transition-colors">
+                                        <ion-icon name="heart"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="p-5">
+                                    <div class="flex items-center gap-1 text-yellow-500 text-sm mb-2">
+                                        <ion-icon name="star"></ion-icon>
+                                        <span class="font-bold text-gray-900">4.8</span>
+                                        <span class="text-gray-400 font-normal">(85 reviews)</span>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Santorini Sunset Cruise</h3>
+                                    <p class="text-gray-500 text-sm mb-4 line-clamp-2">Sail through the caldera and enjoy the world-famous sunset.</p>
+                                    <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                                        <div class="text-gray-500 text-sm flex items-center gap-1">
+                                            <ion-icon name="time-outline"></ion-icon> 7 Days
+                                        </div>
+                                        <div class="flex items-baseline gap-1">
+                                            <span class="text-xs text-gray-500">from</span>
+                                            <span class="text-lg font-bold text-blue-600">$1,850</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Santorini Sunset Cruise</h3>
-                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Sail through the caldera and enjoy the world-famous sunset.</p>
-                        <div class="flex justify-between items-center border-t border-gray-100 pt-4">
-                            <div class="text-gray-500 text-sm flex items-center gap-1">
-                                <ion-icon name="time-outline"></ion-icon> 7 Days
-                            </div>
-                            <div class="flex items-baseline gap-1">
-                                <span class="text-xs text-gray-500">from</span>
-                                <span class="text-lg font-bold text-blue-600">$1,850</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
 
-                <!-- Tour Card 3 -->
-                <a href="tour-details.html" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?q=80&w=800" alt="Bali" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-green-600 uppercase tracking-wide">Nature</div>
-                         <button class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-red-500 transition-colors">
-                            <ion-icon name="heart"></ion-icon>
-                        </button>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-1 text-yellow-500 text-sm mb-2">
-                            <ion-icon name="star"></ion-icon>
-                            <span class="font-bold text-gray-900">4.9</span>
-                            <span class="text-gray-400 font-normal">(210 reviews)</span>
+                        <!-- Tour Card 3 -->
+                        <div class="embla__slide flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%] min-w-0 pl-8">
+                            <a href="tour-details.html" class="block group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full">
+                                <div class="relative h-64 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?q=80&w=800" alt="Bali" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-green-600 uppercase tracking-wide">Nature</div>
+                                    <button class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-red-500 transition-colors">
+                                        <ion-icon name="heart"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="p-5">
+                                    <div class="flex items-center gap-1 text-yellow-500 text-sm mb-2">
+                                        <ion-icon name="star"></ion-icon>
+                                        <span class="font-bold text-gray-900">4.9</span>
+                                        <span class="text-gray-400 font-normal">(210 reviews)</span>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Bali Spiritual Journey</h3>
+                                    <p class="text-gray-500 text-sm mb-4 line-clamp-2">Discover temples, rice terraces, and find your inner peace.</p>
+                                    <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                                        <div class="text-gray-500 text-sm flex items-center gap-1">
+                                            <ion-icon name="time-outline"></ion-icon> 10 Days
+                                        </div>
+                                        <div class="flex items-baseline gap-1">
+                                            <span class="text-xs text-gray-500">from</span>
+                                            <span class="text-lg font-bold text-blue-600">$950</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Bali Spiritual Journey</h3>
-                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Discover temples, rice terraces, and find your inner peace.</p>
-                        <div class="flex justify-between items-center border-t border-gray-100 pt-4">
-                            <div class="text-gray-500 text-sm flex items-center gap-1">
-                                <ion-icon name="time-outline"></ion-icon> 10 Days
-                            </div>
-                            <div class="flex items-baseline gap-1">
-                                <span class="text-xs text-gray-500">from</span>
-                                <span class="text-lg font-bold text-blue-600">$950</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
 
-                 <!-- Tour Card 4 -->
-                 <a href="tour-details.html" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="relative h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?q=80&w=800" alt="Swiss" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-purple-600 uppercase tracking-wide">Adventure</div>
-                        <button class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-red-500 transition-colors">
-                            <ion-icon name="heart"></ion-icon>
-                        </button>
-                    </div>
-                    <div class="p-5">
-                        <div class="flex items-center gap-1 text-yellow-500 text-sm mb-2">
-                            <ion-icon name="star"></ion-icon>
-                            <span class="font-bold text-gray-900">5.0</span>
-                            <span class="text-gray-400 font-normal">(64 reviews)</span>
+                        <!-- Tour Card 4 -->
+                        <div class="embla__slide flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_25%] min-w-0 pl-8">
+                            <a href="tour-details.html" class="block group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full">
+                                <div class="relative h-64 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?q=80&w=800" alt="Swiss" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-purple-600 uppercase tracking-wide">Adventure</div>
+                                    <button class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-red-500 transition-colors">
+                                        <ion-icon name="heart"></ion-icon>
+                                    </button>
+                                </div>
+                                <div class="p-5">
+                                    <div class="flex items-center gap-1 text-yellow-500 text-sm mb-2">
+                                        <ion-icon name="star"></ion-icon>
+                                        <span class="font-bold text-gray-900">5.0</span>
+                                        <span class="text-gray-400 font-normal">(64 reviews)</span>
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Swiss Alps Hiking</h3>
+                                    <p class="text-gray-500 text-sm mb-4 line-clamp-2">Breathtaking views and challenging trails in the mountains.</p>
+                                    <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                                        <div class="text-gray-500 text-sm flex items-center gap-1">
+                                            <ion-icon name="time-outline"></ion-icon> 6 Days
+                                        </div>
+                                        <div class="flex items-baseline gap-1">
+                                            <span class="text-xs text-gray-500">from</span>
+                                            <span class="text-lg font-bold text-blue-600">$2,100</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Swiss Alps Hiking</h3>
-                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Breathtaking views and challenging trails in the mountains.</p>
-                        <div class="flex justify-between items-center border-t border-gray-100 pt-4">
-                            <div class="text-gray-500 text-sm flex items-center gap-1">
-                                <ion-icon name="time-outline"></ion-icon> 6 Days
-                            </div>
-                            <div class="flex items-baseline gap-1">
-                                <span class="text-xs text-gray-500">from</span>
-                                <span class="text-lg font-bold text-blue-600">$2,100</span>
-                            </div>
-                        </div>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     </section>

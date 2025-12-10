@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="../dist/output.css" rel="stylesheet">
+    <!-- Embla Carousel & Custom Script -->
+    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+    <script src="js/carousel.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
@@ -281,61 +284,82 @@
 
         <!-- Related Tours -->
         <div class="mt-20 border-t border-gray-100 pt-16">
-            <h2 class="text-3xl font-bold text-gray-900 mb-8">You might also like</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                 <!-- Related Card 1 -->
-                 <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=800" alt="Italy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                         <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-bold text-blue-800 uppercase">Culture</div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex items-center gap-1 text-yellow-500 text-xs mb-2">
-                            <ion-icon name="star"></ion-icon> 4.7
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Cinque Terre Hiking</h3>
-                        <div class="flex items-baseline gap-1 mt-2">
-                            <span class="text-xs text-gray-500">from</span>
-                            <span class="text-base font-bold text-blue-600">$1,450</span>
-                        </div>
-                    </div>
-                </a>
+            <div class="flex justify-between items-end mb-8">
+                <h2 class="text-3xl font-bold text-gray-900">You might also like</h2>
+                <div class="flex gap-4">
+                    <button class="embla__prev w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                        <ion-icon name="arrow-back-outline"></ion-icon>
+                    </button>
+                    <button class="embla__next w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                    </button>
+                </div>
+            </div>
 
-                 <!-- Related Card 2 -->
-                 <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1534008897995-27a23e859048?q=80&w=800" alt="Greece" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-bold text-orange-800 uppercase">Beach</div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex items-center gap-1 text-yellow-500 text-xs mb-2">
-                            <ion-icon name="star"></ion-icon> 4.9
+            <div class="embla overflow-hidden" id="related-tours-carousel">
+                <div class="embla__viewport">
+                    <div class="embla__container flex -ml-8">
+                        <!-- Related Card 1 -->
+                        <div class="embla__slide flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0 pl-8">
+                            <a href="#" class="block group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 h-full">
+                                <div class="relative h-48 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=800" alt="Italy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-bold text-blue-800 uppercase">Culture</div>
+                                </div>
+                                <div class="p-4">
+                                    <div class="flex items-center gap-1 text-yellow-500 text-xs mb-2">
+                                        <ion-icon name="star"></ion-icon> 4.7
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Cinque Terre Hiking</h3>
+                                    <div class="flex items-baseline gap-1 mt-2">
+                                        <span class="text-xs text-gray-500">from</span>
+                                        <span class="text-base font-bold text-blue-600">$1,450</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Greek Island Hopping</h3>
-                         <div class="flex items-baseline gap-1 mt-2">
-                            <span class="text-xs text-gray-500">from</span>
-                            <span class="text-base font-bold text-blue-600">$2,100</span>
-                        </div>
-                    </div>
-                </a>
 
-                 <!-- Related Card 3 -->
-                 <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=800" alt="Bali" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-bold text-green-800 uppercase">Nature</div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex items-center gap-1 text-yellow-500 text-xs mb-2">
-                            <ion-icon name="star"></ion-icon> 4.8
+                        <!-- Related Card 2 -->
+                        <div class="embla__slide flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0 pl-8">
+                            <a href="#" class="block group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 h-full">
+                                <div class="relative h-48 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1534008897995-27a23e859048?q=80&w=800" alt="Greece" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-bold text-orange-800 uppercase">Beach</div>
+                                </div>
+                                <div class="p-4">
+                                    <div class="flex items-center gap-1 text-yellow-500 text-xs mb-2">
+                                        <ion-icon name="star"></ion-icon> 4.9
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Greek Island Hopping</h3>
+                                    <div class="flex items-baseline gap-1 mt-2">
+                                        <span class="text-xs text-gray-500">from</span>
+                                        <span class="text-base font-bold text-blue-600">$2,100</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                        <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Ubud Wellness Retreat</h3>
-                         <div class="flex items-baseline gap-1 mt-2">
-                            <span class="text-xs text-gray-500">from</span>
-                            <span class="text-base font-bold text-blue-600">$890</span>
+
+                        <!-- Related Card 3 -->
+                        <div class="embla__slide flex-[0_0_100%] md:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0 pl-8">
+                            <a href="#" class="block group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 h-full">
+                                <div class="relative h-48 overflow-hidden">
+                                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=800" alt="Bali" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                                    <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-bold text-green-800 uppercase">Nature</div>
+                                </div>
+                                <div class="p-4">
+                                    <div class="flex items-center gap-1 text-yellow-500 text-xs mb-2">
+                                        <ion-icon name="star"></ion-icon> 4.8
+                                    </div>
+                                    <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Ubud Wellness Retreat</h3>
+                                    <div class="flex items-baseline gap-1 mt-2">
+                                        <span class="text-xs text-gray-500">from</span>
+                                        <span class="text-base font-bold text-blue-600">$890</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
 
