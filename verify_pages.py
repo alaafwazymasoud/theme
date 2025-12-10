@@ -30,6 +30,11 @@ def verify_pages():
         page.goto(f'file://{os.path.join(src_dir, "post.html")}')
         page.screenshot(path='post.png', full_page=True)
 
+        # Verify build-your-tour.html
+        print("Verifying build-your-tour.html...")
+        page.goto(f'file://{os.path.join(src_dir, "build-your-tour.html")}')
+        page.screenshot(path='build-your-tour.png', full_page=True)
+
         browser.close()
         print("Verification complete. Screenshots saved.")
 

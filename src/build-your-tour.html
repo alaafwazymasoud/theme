@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Your Tour - Wanderlust</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../dist/output.css" rel="stylesheet">
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        /* Custom styles for wizard transition */
+        .step-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .step-content.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 top-0 left-0 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-md py-2" id="navbar">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-blue-600 tracking-tight flex items-center gap-2 z-50 relative">
+                <ion-icon name="airplane"></ion-icon> Wanderlust
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 text-gray-800 text-sm font-medium">
+                <a href="index.html" class="hover:text-blue-600 transition-colors">Home</a>
+                <a href="index.html#tours" class="hover:text-blue-600 transition-colors">Tours</a>
+                <a href="index.html#destinations" class="hover:text-blue-600 transition-colors">Destinations</a>
+                <a href="#" class="text-blue-600 font-bold">Build Your Tour</a>
+                <a href="index.html#blog" class="hover:text-blue-600 transition-colors">Blog</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#" class="text-gray-800 font-medium text-sm hover:text-blue-600">Log in</a>
+                <a href="#" class="bg-blue-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-blue-700 transition-all shadow-lg hover:shadow-blue-500/30">Sign up</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center z-50">
+                <button id="mobile-menu-btn" class="text-gray-800 text-3xl focus:outline-none">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 md:hidden">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-4xl focus:outline-none">
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+        <a href="index.html" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Home</a>
+        <a href="index.html#tours" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Tours</a>
+        <a href="index.html#destinations" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Destinations</a>
+        <a href="#" class="mobile-link text-2xl text-blue-500 font-bold">Build Your Tour</a>
+        <a href="index.html#blog" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Blog</a>
+        <a href="#" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Log in</a>
+        <a href="#" class="mobile-link px-8 py-3 bg-blue-600 rounded-full text-white text-xl font-bold">Sign up</a>
+    </div>
+
+    <!-- Main Content -->
+    <main class="pt-32 pb-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-10">
+                    <h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Build Your Dream Tour</h1>
+                    <p class="text-lg text-gray-500">Tell us your preferences and we'll craft the perfect itinerary for you.</p>
+                </div>
+
+                <!-- Wizard Progress -->
+                <div class="mb-10">
+                    <div class="flex items-center justify-between relative">
+                        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-full h-1 bg-gray-200 -z-10 rounded-full"></div>
+                        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 h-1 bg-blue-600 -z-10 rounded-full transition-all duration-300" id="progress-bar" style="width: 0%;"></div>
+
+                        <!-- Steps Indicators -->
+                        <div class="step-indicator w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-sm ring-4 ring-white transition-all duration-300" data-step="1">1</div>
+                        <div class="step-indicator w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-bold text-sm ring-4 ring-white transition-all duration-300" data-step="2">2</div>
+                        <div class="step-indicator w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-bold text-sm ring-4 ring-white transition-all duration-300" data-step="3">3</div>
+                        <div class="step-indicator w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-bold text-sm ring-4 ring-white transition-all duration-300" data-step="4">4</div>
+                        <div class="step-indicator w-10 h-10 bg-gray-200 text-gray-500 rounded-full flex items-center justify-center font-bold text-sm ring-4 ring-white transition-all duration-300" data-step="5">5</div>
+                    </div>
+                    <div class="flex justify-between mt-2 text-xs font-medium text-gray-500">
+                        <span class="w-10 text-center -ml-3">Dates</span>
+                        <span class="w-20 text-center -ml-5">Details</span>
+                        <span class="w-20 text-center -ml-5">Interests</span>
+                        <span class="w-20 text-center -ml-5">Needs</span>
+                        <span class="w-10 text-center -mr-3">Contact</span>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <form id="wizard-form" class="bg-white rounded-3xl shadow-xl p-8 md:p-10 border border-gray-100">
+
+                    <!-- Step 1: Destination & Dates -->
+                    <div class="step-content active" id="step-1">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                            <ion-icon name="map-outline" class="text-blue-600"></ion-icon> Where & When
+                        </h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Destinations</label>
+                                <input type="text" name="destination" placeholder="E.g., Italy, Japan, or 'Anywhere warm'" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" required>
+                                <p class="text-xs text-gray-400 mt-1">List countries or cities you want to visit.</p>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Departure Date</label>
+                                <input type="date" name="departure_date" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" required>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Return Date (Approx)</label>
+                                <input type="date" name="return_date" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Duration (Days)</label>
+                                <input type="number" name="duration" min="1" placeholder="e.g. 10" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                            </div>
+
+                            <div class="flex items-center gap-2 mt-6">
+                                <input type="checkbox" id="flexible_dates" name="flexible_dates" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                <label for="flexible_dates" class="text-gray-700">My dates are flexible (+/- 3 days)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Travelers & Accommodation -->
+                    <div class="step-content" id="step-2">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                            <ion-icon name="people-outline" class="text-blue-600"></ion-icon> Who & How
+                        </h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Adults (12+)</label>
+                                <div class="flex items-center">
+                                    <button type="button" class="w-10 h-10 rounded-l-xl bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold" onclick="decrement('adults')">-</button>
+                                    <input type="number" id="adults" name="adults" value="2" min="1" class="w-full px-4 py-2 bg-gray-50 border-y border-gray-200 text-center outline-none h-10" readonly>
+                                    <button type="button" class="w-10 h-10 rounded-r-xl bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold" onclick="increment('adults')">+</button>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Children (0-11)</label>
+                                <div class="flex items-center">
+                                    <button type="button" class="w-10 h-10 rounded-l-xl bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold" onclick="decrement('children')">-</button>
+                                    <input type="number" id="children" name="children" value="0" min="0" class="w-full px-4 py-2 bg-gray-50 border-y border-gray-200 text-center outline-none h-10" readonly>
+                                    <button type="button" class="w-10 h-10 rounded-r-xl bg-gray-100 hover:bg-gray-200 text-gray-600 font-bold" onclick="increment('children')">+</button>
+                                </div>
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Preferred Accommodation</label>
+                                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="accommodation" value="hotel" class="peer sr-only" checked>
+                                        <div class="p-4 rounded-xl border border-gray-200 hover:bg-gray-50 peer-checked:border-blue-600 peer-checked:bg-blue-50 transition-all text-center">
+                                            <ion-icon name="business-outline" class="text-2xl mb-1 text-gray-500 peer-checked:text-blue-600"></ion-icon>
+                                            <div class="text-sm font-medium">Hotel</div>
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="accommodation" value="resort" class="peer sr-only">
+                                        <div class="p-4 rounded-xl border border-gray-200 hover:bg-gray-50 peer-checked:border-blue-600 peer-checked:bg-blue-50 transition-all text-center">
+                                            <ion-icon name="umbrella-outline" class="text-2xl mb-1 text-gray-500 peer-checked:text-blue-600"></ion-icon>
+                                            <div class="text-sm font-medium">Resort</div>
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="accommodation" value="apartment" class="peer sr-only">
+                                        <div class="p-4 rounded-xl border border-gray-200 hover:bg-gray-50 peer-checked:border-blue-600 peer-checked:bg-blue-50 transition-all text-center">
+                                            <ion-icon name="home-outline" class="text-2xl mb-1 text-gray-500 peer-checked:text-blue-600"></ion-icon>
+                                            <div class="text-sm font-medium">Apartment</div>
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="accommodation" value="villa" class="peer sr-only">
+                                        <div class="p-4 rounded-xl border border-gray-200 hover:bg-gray-50 peer-checked:border-blue-600 peer-checked:bg-blue-50 transition-all text-center">
+                                            <ion-icon name="key-outline" class="text-2xl mb-1 text-gray-500 peer-checked:text-blue-600"></ion-icon>
+                                            <div class="text-sm font-medium">Villa</div>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Budget per Person (Estimated)</label>
+                                <select name="budget" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                                    <option value="">Select a range</option>
+                                    <option value="economy">$500 - $1000 (Economy)</option>
+                                    <option value="standard">$1000 - $2500 (Standard)</option>
+                                    <option value="premium">$2500 - $5000 (Premium)</option>
+                                    <option value="luxury">$5000+ (Luxury)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Interests & Activities -->
+                    <div class="step-content" id="step-3">
+                         <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                            <ion-icon name="compass-outline" class="text-blue-600"></ion-icon> Interests
+                        </h2>
+
+                        <div class="mb-6">
+                            <label class="block text-sm font-semibold text-gray-700 mb-3">Travel Style</label>
+                            <div class="flex flex-wrap gap-3">
+                                <label class="cursor-pointer">
+                                    <input type="checkbox" name="style" value="relaxing" class="peer sr-only">
+                                    <span class="px-4 py-2 rounded-full border border-gray-200 text-gray-600 bg-white hover:bg-gray-50 peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600 transition-all text-sm font-medium">Relaxing</span>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="checkbox" name="style" value="adventure" class="peer sr-only">
+                                    <span class="px-4 py-2 rounded-full border border-gray-200 text-gray-600 bg-white hover:bg-gray-50 peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600 transition-all text-sm font-medium">Adventure</span>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="checkbox" name="style" value="cultural" class="peer sr-only">
+                                    <span class="px-4 py-2 rounded-full border border-gray-200 text-gray-600 bg-white hover:bg-gray-50 peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600 transition-all text-sm font-medium">Cultural</span>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="checkbox" name="style" value="romantic" class="peer sr-only">
+                                    <span class="px-4 py-2 rounded-full border border-gray-200 text-gray-600 bg-white hover:bg-gray-50 peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600 transition-all text-sm font-medium">Romantic</span>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="checkbox" name="style" value="family" class="peer sr-only">
+                                    <span class="px-4 py-2 rounded-full border border-gray-200 text-gray-600 bg-white hover:bg-gray-50 peer-checked:bg-blue-600 peer-checked:text-white peer-checked:border-blue-600 transition-all text-sm font-medium">Family</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-3">What are you interested in?</label>
+                             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                                <label class="flex items-center gap-2 p-3 rounded-lg border border-gray-100 hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" name="interests" value="history" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-sm text-gray-700">History & Architecture</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 rounded-lg border border-gray-100 hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" name="interests" value="food" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-sm text-gray-700">Food & Dining</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 rounded-lg border border-gray-100 hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" name="interests" value="nature" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-sm text-gray-700">Nature & Wildlife</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 rounded-lg border border-gray-100 hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" name="interests" value="beaches" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-sm text-gray-700">Beaches</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 rounded-lg border border-gray-100 hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" name="interests" value="shopping" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-sm text-gray-700">Shopping</span>
+                                </label>
+                                <label class="flex items-center gap-2 p-3 rounded-lg border border-gray-100 hover:bg-gray-50 cursor-pointer">
+                                    <input type="checkbox" name="interests" value="wellness" class="w-4 h-4 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-sm text-gray-700">Wellness & Spa</span>
+                                </label>
+                             </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Special Requirements -->
+                    <div class="step-content" id="step-4">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                            <ion-icon name="accessibility-outline" class="text-blue-600"></ion-icon> Requirements
+                        </h2>
+
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Food & Dietary Requirements</label>
+                                <textarea name="dietary" rows="3" placeholder="Vegetarian, Gluten-free, Allergies..." class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"></textarea>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Special Requests / Accessibility Needs</label>
+                                <textarea name="special_requests" rows="4" placeholder="Any mobility issues, specific room requests, celebration planning, etc." class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5: Contact Information -->
+                    <div class="step-content" id="step-5">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                            <ion-icon name="mail-outline" class="text-blue-600"></ion-icon> Contact Info
+                        </h2>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Full Name</label>
+                                <input type="text" name="fullname" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" required>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+                                <input type="email" name="email" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" required>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" name="phone" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all" required>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Country of Residence</label>
+                                <input type="text" name="country" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="flex items-start gap-3 cursor-pointer">
+                                    <input type="checkbox" required class="mt-1 w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-sm text-gray-600">I agree to the <a href="#" class="text-blue-600 underline">Privacy Policy</a> and <a href="#" class="text-blue-600 underline">Terms of Service</a>.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="flex justify-between mt-10 pt-6 border-t border-gray-100">
+                        <button type="button" id="prev-btn" class="px-6 py-3 rounded-xl text-gray-600 font-semibold hover:bg-gray-100 transition-colors hidden">
+                            Back
+                        </button>
+                        <button type="button" id="next-btn" class="px-8 py-3 bg-blue-600 text-white rounded-xl font-bold shadow-lg hover:shadow-blue-500/30 hover:bg-blue-700 transition-all ml-auto">
+                            Next Step
+                        </button>
+                        <button type="submit" id="submit-btn" class="px-8 py-3 bg-green-600 text-white rounded-xl font-bold shadow-lg hover:shadow-green-500/30 hover:bg-green-700 transition-all ml-auto hidden">
+                            Submit Request
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="index.html" class="text-2xl font-bold text-white tracking-tight flex items-center gap-2 mb-6">
+                        <ion-icon name="airplane"></ion-icon> Wanderlust
+                    </a>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Making your travel dreams a reality with premium tours and unforgettable experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><ion-icon name="logo-twitter"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Press</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Support</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to get special offers and travel inspiration.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Your email" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2023 Wanderlust Inc. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">Privacy</a>
+                    <a href="#" class="hover:text-white">Terms</a>
+                    <a href="#" class="hover:text-white">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+             mobileMenu.classList.add('translate-x-full');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // Wizard Logic
+        let currentStep = 1;
+        const totalSteps = 5;
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const submitBtn = document.getElementById('submit-btn');
+        const progressBar = document.getElementById('progress-bar');
+        const steps = document.querySelectorAll('.step-content');
+        const indicators = document.querySelectorAll('.step-indicator');
+
+        function updateWizard() {
+            // Update step visibility
+            steps.forEach(step => {
+                step.classList.remove('active');
+                if(parseInt(step.id.replace('step-', '')) === currentStep) {
+                    step.classList.add('active');
+                }
+            });
+
+            // Update Progress Bar
+            const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            // Update Indicators
+            indicators.forEach(indicator => {
+                const stepNum = parseInt(indicator.dataset.step);
+                if (stepNum < currentStep) {
+                    indicator.classList.remove('bg-gray-200', 'text-gray-500', 'bg-blue-600', 'text-white');
+                    indicator.classList.add('bg-green-500', 'text-white');
+                    indicator.innerHTML = '<ion-icon name="checkmark"></ion-icon>';
+                } else if (stepNum === currentStep) {
+                    indicator.classList.remove('bg-gray-200', 'text-gray-500', 'bg-green-500');
+                    indicator.classList.add('bg-blue-600', 'text-white');
+                    indicator.textContent = stepNum;
+                } else {
+                    indicator.classList.remove('bg-blue-600', 'text-white', 'bg-green-500');
+                    indicator.classList.add('bg-gray-200', 'text-gray-500');
+                    indicator.textContent = stepNum;
+                }
+            });
+
+            // Update Buttons
+            if (currentStep === 1) {
+                prevBtn.classList.add('hidden');
+            } else {
+                prevBtn.classList.remove('hidden');
+            }
+
+            if (currentStep === totalSteps) {
+                nextBtn.classList.add('hidden');
+                submitBtn.classList.remove('hidden');
+            } else {
+                nextBtn.classList.remove('hidden');
+                submitBtn.classList.add('hidden');
+            }
+
+            // Scroll to top of form
+            document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Validation (Basic)
+        function validateStep(step) {
+            const currentStepEl = document.getElementById(`step-${step}`);
+            const inputs = currentStepEl.querySelectorAll('input[required], select[required], textarea[required]');
+            let valid = true;
+
+            inputs.forEach(input => {
+                if (!input.value) {
+                    valid = false;
+                    input.classList.add('ring-2', 'ring-red-500', 'border-red-500');
+                    // Add event listener to remove error on input
+                    input.addEventListener('input', () => {
+                         input.classList.remove('ring-2', 'ring-red-500', 'border-red-500');
+                    }, { once: true });
+                }
+            });
+
+            if (!valid) {
+                 alert('Please fill in all required fields.');
+            }
+            return valid;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (validateStep(currentStep)) {
+                if (currentStep < totalSteps) {
+                    currentStep++;
+                    updateWizard();
+                }
+            }
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (currentStep > 1) {
+                currentStep--;
+                updateWizard();
+            }
+        });
+
+        document.getElementById('wizard-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Here you would normally submit the data to a server
+            alert('Thank you! Your request has been submitted. We will contact you shortly.');
+            window.location.href = 'index.html';
+        });
+
+        // Helper functions
+        function increment(id) {
+            const input = document.getElementById(id);
+            input.value = parseInt(input.value) + 1;
+        }
+
+        function decrement(id) {
+            const input = document.getElementById(id);
+            if (parseInt(input.value) > 0) {
+                 input.value = parseInt(input.value) - 1;
+            }
+        }
+    </script>
+</body>
+</html>
