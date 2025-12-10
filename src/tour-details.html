@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="../dist/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/photoswipe@5.4.3/dist/photoswipe.css">
     <!-- Embla Carousel & Custom Script -->
     <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
     <script src="js/carousel.js"></script>
@@ -230,40 +231,75 @@
                 <!-- Itinerary -->
                 <section id="itinerary" class="scroll-mt-36">
                     <h2 class="text-2xl font-bold text-gray-900 mb-6">Itinerary</h2>
-                    <div class="space-y-6">
+                    <div class="space-y-4" id="itinerary-accordion">
                         <!-- Day 1 -->
-                        <div class="relative pl-8 border-l-2 border-blue-100 pb-2">
-                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-sm"></div>
-                            <h3 class="font-bold text-gray-900 text-lg">Day 1: Arrival & Welcome Dinner</h3>
-                            <p class="text-gray-500 mt-2">Arrive at CDG Airport where a private car will take you to your hotel. Evening welcome dinner at a classic Parisian bistro.</p>
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left" onclick="toggleAccordion(this)">
+                                <div class="flex items-center gap-4">
+                                    <span class="bg-blue-600 text-white text-sm font-bold w-8 h-8 rounded-full flex items-center justify-center shrink-0">1</span>
+                                    <span class="font-bold text-gray-900 text-lg">Arrival & Welcome Dinner</span>
+                                </div>
+                                <ion-icon name="chevron-down-outline" class="text-xl text-gray-400 transition-transform duration-300"></ion-icon>
+                            </button>
+                            <div class="hidden bg-white p-4 text-gray-500 leading-relaxed border-t border-gray-100 accordion-content">
+                                <p>Arrive at CDG Airport where a private car will take you to your hotel. Evening welcome dinner at a classic Parisian bistro.</p>
+                            </div>
                         </div>
 
                         <!-- Day 2 -->
-                         <div class="relative pl-8 border-l-2 border-blue-100 pb-2">
-                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-sm"></div>
-                            <h3 class="font-bold text-gray-900 text-lg">Day 2: The Icons of Paris</h3>
-                            <p class="text-gray-500 mt-2">Skip-the-line access to the Eiffel Tower and a guided walking tour of the Champs-Élysées. Afternoon tea at Ladurée.</p>
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left" onclick="toggleAccordion(this)">
+                                <div class="flex items-center gap-4">
+                                    <span class="bg-blue-600 text-white text-sm font-bold w-8 h-8 rounded-full flex items-center justify-center shrink-0">2</span>
+                                    <span class="font-bold text-gray-900 text-lg">The Icons of Paris</span>
+                                </div>
+                                <ion-icon name="chevron-down-outline" class="text-xl text-gray-400 transition-transform duration-300"></ion-icon>
+                            </button>
+                            <div class="hidden bg-white p-4 text-gray-500 leading-relaxed border-t border-gray-100 accordion-content">
+                                <p>Skip-the-line access to the Eiffel Tower and a guided walking tour of the Champs-Élysées. Afternoon tea at Ladurée.</p>
+                            </div>
                         </div>
 
-                         <!-- Day 3 -->
-                         <div class="relative pl-8 border-l-2 border-blue-100 pb-2">
-                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-sm"></div>
-                            <h3 class="font-bold text-gray-900 text-lg">Day 3: Art & Culture</h3>
-                            <p class="text-gray-500 mt-2">Private tour of the Louvre Museum. Explore the artistic streets of Montmartre in the afternoon.</p>
+                        <!-- Day 3 -->
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left" onclick="toggleAccordion(this)">
+                                <div class="flex items-center gap-4">
+                                    <span class="bg-blue-600 text-white text-sm font-bold w-8 h-8 rounded-full flex items-center justify-center shrink-0">3</span>
+                                    <span class="font-bold text-gray-900 text-lg">Art & Culture</span>
+                                </div>
+                                <ion-icon name="chevron-down-outline" class="text-xl text-gray-400 transition-transform duration-300"></ion-icon>
+                            </button>
+                            <div class="hidden bg-white p-4 text-gray-500 leading-relaxed border-t border-gray-100 accordion-content">
+                                <p>Private tour of the Louvre Museum. Explore the artistic streets of Montmartre in the afternoon.</p>
+                            </div>
                         </div>
 
                         <!-- Day 4 -->
-                         <div class="relative pl-8 border-l-2 border-blue-100 pb-2">
-                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-white shadow-sm"></div>
-                            <h3 class="font-bold text-gray-900 text-lg">Day 4: Versailles Day Trip</h3>
-                            <p class="text-gray-500 mt-2">A trip to the magnificent Palace of Versailles to see the Hall of Mirrors and the royal gardens.</p>
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left" onclick="toggleAccordion(this)">
+                                <div class="flex items-center gap-4">
+                                    <span class="bg-blue-600 text-white text-sm font-bold w-8 h-8 rounded-full flex items-center justify-center shrink-0">4</span>
+                                    <span class="font-bold text-gray-900 text-lg">Versailles Day Trip</span>
+                                </div>
+                                <ion-icon name="chevron-down-outline" class="text-xl text-gray-400 transition-transform duration-300"></ion-icon>
+                            </button>
+                            <div class="hidden bg-white p-4 text-gray-500 leading-relaxed border-t border-gray-100 accordion-content">
+                                <p>A trip to the magnificent Palace of Versailles to see the Hall of Mirrors and the royal gardens.</p>
+                            </div>
                         </div>
 
-                         <!-- Day 5 -->
-                         <div class="relative pl-8 border-l-2 border-transparent">
-                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-300 border-4 border-white shadow-sm"></div>
-                            <h3 class="font-bold text-gray-900 text-lg">Day 5: Departure</h3>
-                            <p class="text-gray-500 mt-2">Breakfast at the hotel and private transfer to the airport for your flight home.</p>
+                        <!-- Day 5 -->
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left" onclick="toggleAccordion(this)">
+                                <div class="flex items-center gap-4">
+                                    <span class="bg-blue-600 text-white text-sm font-bold w-8 h-8 rounded-full flex items-center justify-center shrink-0">5</span>
+                                    <span class="font-bold text-gray-900 text-lg">Departure</span>
+                                </div>
+                                <ion-icon name="chevron-down-outline" class="text-xl text-gray-400 transition-transform duration-300"></ion-icon>
+                            </button>
+                            <div class="hidden bg-white p-4 text-gray-500 leading-relaxed border-t border-gray-100 accordion-content">
+                                <p>Breakfast at the hotel and private transfer to the airport for your flight home.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -271,15 +307,21 @@
                 <!-- Gallery -->
                 <section id="gallery" class="scroll-mt-36">
                     <h2 class="text-2xl font-bold text-gray-900 mb-6">Gallery</h2>
-                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 h-96">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 h-96 pswp-gallery" id="gallery-grid">
                         <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden cursor-pointer hover:opacity-95 transition-opacity">
-                            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=800" class="w-full h-full object-cover" alt="Paris 1">
+                            <a href="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1600" data-pswp-width="1600" data-pswp-height="1066" target="_blank">
+                                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=800" class="w-full h-full object-cover" alt="Paris 1">
+                            </a>
                         </div>
                         <div class="rounded-2xl overflow-hidden cursor-pointer hover:opacity-95 transition-opacity">
-                            <img src="https://images.unsplash.com/photo-1499856871940-b09fe69296ca?q=80&w=800" class="w-full h-full object-cover" alt="Paris 2">
+                             <a href="https://images.unsplash.com/photo-1499856871940-b09fe69296ca?q=80&w=1600" data-pswp-width="1600" data-pswp-height="1066" target="_blank">
+                                <img src="https://images.unsplash.com/photo-1499856871940-b09fe69296ca?q=80&w=800" class="w-full h-full object-cover" alt="Paris 2">
+                            </a>
                         </div>
                         <div class="rounded-2xl overflow-hidden cursor-pointer hover:opacity-95 transition-opacity">
-                            <img src="https://images.unsplash.com/photo-1500832333538-8372101e575d?q=80&w=800" class="w-full h-full object-cover" alt="Paris 3">
+                             <a href="https://images.unsplash.com/photo-1500832333538-8372101e575d?q=80&w=1600" data-pswp-width="1600" data-pswp-height="1066" target="_blank">
+                                <img src="https://images.unsplash.com/photo-1500832333538-8372101e575d?q=80&w=800" class="w-full h-full object-cover" alt="Paris 3">
+                            </a>
                         </div>
                     </div>
                 </section>
@@ -453,7 +495,41 @@
         </div>
     </footer>
 
+    <script type="module">
+        import PhotoSwipeLightbox from 'https://unpkg.com/photoswipe@5.4.3/dist/photoswipe-lightbox.esm.js';
+        const lightbox = new PhotoSwipeLightbox({
+          gallery: '#gallery-grid',
+          children: 'a',
+          pswpModule: () => import('https://unpkg.com/photoswipe@5.4.3/dist/photoswipe.esm.js')
+        });
+        lightbox.init();
+    </script>
     <script>
+        // Accordion Logic
+        function toggleAccordion(button) {
+            const container = document.getElementById('itinerary-accordion');
+            const allButtons = container.querySelectorAll('button');
+
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('ion-icon');
+
+            const isOpen = !content.classList.contains('hidden');
+
+            // Close all
+            allButtons.forEach(btn => {
+                const btnContent = btn.nextElementSibling;
+                const btnIcon = btn.querySelector('ion-icon');
+                btnContent.classList.add('hidden');
+                btnIcon.classList.remove('rotate-180');
+            });
+
+            // If it was not open, open it
+            if (!isOpen) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            }
+        }
+
         // Navbar Scroll Logic
         const navbar = document.getElementById('navbar');
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
