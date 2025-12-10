@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventure Tours - Wanderlust</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../dist/output.css" rel="stylesheet">
+    <!-- Ionicons for minimal icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 top-0 left-0 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white tracking-tight flex items-center gap-2 z-50 relative">
+                <ion-icon name="airplane"></ion-icon> Wanderlust
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 text-white/90 text-sm font-medium">
+                <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                <a href="index.html#tours" class="hover:text-white transition-colors">Tours</a>
+                <a href="index.html#destinations" class="hover:text-white transition-colors">Destinations</a>
+                <a href="index.html#blog" class="hover:text-white transition-colors">Blog</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#" class="text-white/90 font-medium text-sm hover:text-white">Log in</a>
+                <a href="#" class="bg-white/10 backdrop-blur-md text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-white hover:text-blue-600 transition-all border border-white/20">Sign up</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center z-50">
+                <button id="mobile-menu-btn" class="text-white text-3xl focus:outline-none">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 md:hidden">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-4xl focus:outline-none">
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+        <a href="index.html" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Home</a>
+        <a href="index.html#tours" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Tours</a>
+        <a href="index.html#destinations" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Destinations</a>
+        <a href="index.html#blog" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Blog</a>
+        <a href="#" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Log in</a>
+        <a href="#" class="mobile-link px-8 py-3 bg-blue-600 rounded-full text-white text-xl font-bold">Sign up</a>
+    </div>
+
+    <!-- Header Section -->
+    <header class="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=1920"
+                 alt="Category Background" class="w-full h-full object-cover">
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+        </div>
+
+        <div class="relative z-10 container mx-auto px-6 text-center mt-20">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
+                Adventure Tours
+            </h1>
+            <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light">
+                Embark on thrilling journeys and discover the wild side of the world.
+            </p>
+        </div>
+    </header>
+
+    <!-- Intro Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Experience the Adrenaline</h2>
+            <p class="text-gray-600 text-lg leading-relaxed">
+                Our adventure tours are designed for those who seek more than just a vacation. From hiking the rugged peaks of the Swiss Alps to surfing the pristine waves of Bali, we offer experiences that challenge and inspire. Whether you're an experienced adrenaline junkie or looking to step out of your comfort zone, our expertly guided tours ensure safety while delivering unforgettable excitement. Join us as we explore the most breathtaking landscapes and engage in heart-pounding activities.
+            </p>
+        </div>
+    </section>
+
+    <!-- Tours List -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 text-center">Popular Adventures</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Tour Card 1 -->
+                <a href="tour-details.html" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?q=80&w=800" alt="Santorini" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-orange-600 uppercase tracking-wide">Beach</div>
+                        <button class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-red-500 transition-colors">
+                            <ion-icon name="heart"></ion-icon>
+                        </button>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-1 text-yellow-500 text-sm mb-2">
+                            <ion-icon name="star"></ion-icon>
+                            <span class="font-bold text-gray-900">4.8</span>
+                            <span class="text-gray-400 font-normal">(85 reviews)</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Santorini Sunset Cruise</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Sail through the caldera and enjoy the world-famous sunset.</p>
+                        <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                            <div class="text-gray-500 text-sm flex items-center gap-1">
+                                <ion-icon name="time-outline"></ion-icon> 7 Days
+                            </div>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-xs text-gray-500">from</span>
+                                <span class="text-lg font-bold text-blue-600">$1,850</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Tour Card 2 -->
+                 <a href="tour-details.html" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1531366936337-7c912a4589a7?q=80&w=800" alt="Swiss" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-purple-600 uppercase tracking-wide">Adventure</div>
+                        <button class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-red-500 transition-colors">
+                            <ion-icon name="heart"></ion-icon>
+                        </button>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-1 text-yellow-500 text-sm mb-2">
+                            <ion-icon name="star"></ion-icon>
+                            <span class="font-bold text-gray-900">5.0</span>
+                            <span class="text-gray-400 font-normal">(64 reviews)</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Swiss Alps Hiking</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Breathtaking views and challenging trails in the mountains.</p>
+                        <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                            <div class="text-gray-500 text-sm flex items-center gap-1">
+                                <ion-icon name="time-outline"></ion-icon> 6 Days
+                            </div>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-xs text-gray-500">from</span>
+                                <span class="text-lg font-bold text-blue-600">$2,100</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Tour Card 3 -->
+                <a href="tour-details.html" class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?q=80&w=800" alt="Bali" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-green-600 uppercase tracking-wide">Nature</div>
+                         <button class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center bg-white/20 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-red-500 transition-colors">
+                            <ion-icon name="heart"></ion-icon>
+                        </button>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-1 text-yellow-500 text-sm mb-2">
+                            <ion-icon name="star"></ion-icon>
+                            <span class="font-bold text-gray-900">4.9</span>
+                            <span class="text-gray-400 font-normal">(210 reviews)</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">Bali Spiritual Journey</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-2">Discover temples, rice terraces, and find your inner peace.</p>
+                        <div class="flex justify-between items-center border-t border-gray-100 pt-4">
+                            <div class="text-gray-500 text-sm flex items-center gap-1">
+                                <ion-icon name="time-outline"></ion-icon> 10 Days
+                            </div>
+                            <div class="flex items-baseline gap-1">
+                                <span class="text-xs text-gray-500">from</span>
+                                <span class="text-lg font-bold text-blue-600">$950</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="#" class="text-2xl font-bold text-white tracking-tight flex items-center gap-2 mb-6">
+                        <ion-icon name="airplane"></ion-icon> Wanderlust
+                    </a>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Making your travel dreams a reality with premium tours and unforgettable experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><ion-icon name="logo-twitter"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Press</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Support</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to get special offers and travel inspiration.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Your email" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2023 Wanderlust Inc. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white">Privacy</a>
+                    <a href="#" class="hover:text-white">Terms</a>
+                    <a href="#" class="hover:text-white">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll Logic
+        const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-2');
+                navbar.querySelectorAll('a, span').forEach(el => {
+                    // check if element is inside nav and not special button
+                    if (el.closest('#navbar') && !el.classList.contains('bg-blue-600') && !el.classList.contains('bg-white/10')) {
+                        el.classList.remove('text-white', 'text-white/90');
+                        el.classList.add('text-gray-800');
+                    }
+                });
+                navbar.querySelector('.text-2xl').classList.remove('text-white');
+                navbar.querySelector('.text-2xl').classList.add('text-blue-600');
+
+                // Mobile menu button color change
+                mobileMenuBtn.classList.remove('text-white');
+                mobileMenuBtn.classList.add('text-gray-800');
+
+            } else {
+                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-2');
+                navbar.querySelectorAll('a, span').forEach(el => {
+                     if (el.closest('#navbar') && !el.classList.contains('bg-blue-600') && !el.classList.contains('bg-white/10')) {
+                        el.classList.add('text-white');
+                        el.classList.remove('text-gray-800');
+                     }
+                });
+                navbar.querySelector('.text-2xl').classList.add('text-white');
+                navbar.querySelector('.text-2xl').classList.remove('text-blue-600');
+
+                // Mobile menu button color reset
+                mobileMenuBtn.classList.add('text-white');
+                mobileMenuBtn.classList.remove('text-gray-800');
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+             mobileMenu.classList.add('translate-x-full');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+    </script>
+</body>
+</html>
