@@ -31,6 +31,19 @@
                 <a href="index.html#blog" class="hover:text-white transition-colors">Blog</a>
             </div>
             <div class="hidden md:flex items-center space-x-4">
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-white/90 hover:text-white transition-colors text-sm font-medium focus:outline-none">
+                        <ion-icon name="globe-outline" class="text-lg"></ion-icon>
+                        <span>EN</span>
+                        <ion-icon name="chevron-down-outline" class="text-xs"></ion-icon>
+                    </button>
+                    <!-- Dropdown -->
+                    <div class="absolute top-full right-0 mt-2 w-32 bg-white rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right z-50">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 lang-option">English</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 lang-option">Español</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 lang-option">Français</a>
+                    </div>
+                </div>
                 <a href="#" class="text-white/90 font-medium text-sm hover:text-white">Log in</a>
                 <a href="#" class="bg-white/10 backdrop-blur-md text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-white hover:text-blue-600 transition-all border border-white/20">Sign up</a>
             </div>
@@ -544,8 +557,8 @@
             // Main Navbar Logic
             if (window.scrollY > 50) {
                 navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-2');
-                navbar.querySelectorAll('a, span').forEach(el => {
-                    if (el.closest('#navbar') && !el.classList.contains('bg-blue-600') && !el.classList.contains('bg-white/10')) {
+                navbar.querySelectorAll('a, span, button').forEach(el => {
+                    if (el.closest('#navbar') && !el.classList.contains('bg-blue-600') && !el.classList.contains('bg-white/10') && !el.classList.contains('lang-option')) {
                         el.classList.remove('text-white', 'text-white/90');
                         el.classList.add('text-gray-800');
                     }
@@ -558,8 +571,8 @@
                 }
             } else {
                 navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-2');
-                navbar.querySelectorAll('a, span').forEach(el => {
-                     if (el.closest('#navbar') && !el.classList.contains('bg-blue-600') && !el.classList.contains('bg-white/10')) {
+                navbar.querySelectorAll('a, span, button').forEach(el => {
+                     if (el.closest('#navbar') && !el.classList.contains('bg-blue-600') && !el.classList.contains('bg-white/10') && !el.classList.contains('lang-option')) {
                         el.classList.add('text-white');
                         el.classList.remove('text-gray-800');
                      }
