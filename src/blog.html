@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust Blog - Travel Stories & Tips</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../dist/output.css" rel="stylesheet">
+    <!-- Ionicons for minimal icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 top-0 left-0 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white tracking-tight flex items-center gap-2 z-50 relative">
+                <ion-icon name="airplane"></ion-icon> Wanderlust
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 text-white/90 text-sm font-medium">
+                <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                <a href="index.html#tours" class="hover:text-white transition-colors">Tours</a>
+                <a href="index.html#destinations" class="hover:text-white transition-colors">Destinations</a>
+                <a href="build-your-tour.html" class="hover:text-white transition-colors font-bold text-orange-400 hover:text-orange-300">Build Your Tour</a>
+                <a href="#" class="text-white font-bold border-b-2 border-white pb-1">Blog</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-white/90 hover:text-white transition-colors text-sm font-medium focus:outline-none">
+                        <ion-icon name="globe-outline" class="text-lg"></ion-icon>
+                        <span>EN</span>
+                        <ion-icon name="chevron-down-outline" class="text-xs"></ion-icon>
+                    </button>
+                    <!-- Dropdown -->
+                    <div class="absolute top-full right-0 mt-2 w-32 bg-white rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right z-50">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 lang-option">English</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 lang-option">Español</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 lang-option">Français</a>
+                    </div>
+                </div>
+                <a href="#" class="text-white/90 font-medium text-sm hover:text-white">Log in</a>
+                <a href="#" class="bg-white/10 backdrop-blur-md text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-white hover:text-blue-600 transition-all border border-white/20">Sign up</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center z-50">
+                <button id="mobile-menu-btn" class="text-white text-3xl focus:outline-none">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 md:hidden">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-4xl focus:outline-none">
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+        <a href="index.html" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Home</a>
+        <a href="index.html#tours" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Tours</a>
+        <a href="index.html#destinations" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Destinations</a>
+        <a href="build-your-tour.html" class="mobile-link text-2xl text-orange-400 font-medium hover:text-orange-300">Build Your Tour</a>
+        <a href="#" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Blog</a>
+        <a href="#" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Log in</a>
+        <a href="#" class="mobile-link px-8 py-3 bg-blue-600 rounded-full text-white text-xl font-bold">Sign up</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1499591934245-40b55745b905?q=80&w=1920"
+                 alt="Blog Background" class="w-full h-full object-cover">
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70"></div>
+        </div>
+
+        <div class="relative z-10 container mx-auto px-6 text-center mt-20">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 drop-shadow-lg">
+                The Wanderlust Blog
+            </h1>
+            <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light">
+                Inspiration, tips, and stories for your next great adventure.
+            </p>
+        </div>
+    </header>
+
+    <!-- Categories Section -->
+    <section class="py-12 bg-white border-b border-gray-100 sticky top-0 z-30 shadow-sm" id="categories-bar">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#" class="px-6 py-2 rounded-full bg-blue-600 text-white font-medium text-sm shadow-md transition-transform hover:scale-105">All Posts</a>
+                <a href="#" class="px-6 py-2 rounded-full bg-gray-100 text-gray-600 font-medium text-sm hover:bg-gray-200 transition-colors hover:text-blue-600">Destinations</a>
+                <a href="#" class="px-6 py-2 rounded-full bg-gray-100 text-gray-600 font-medium text-sm hover:bg-gray-200 transition-colors hover:text-blue-600">Travel Tips</a>
+                <a href="#" class="px-6 py-2 rounded-full bg-gray-100 text-gray-600 font-medium text-sm hover:bg-gray-200 transition-colors hover:text-blue-600">Food & Drink</a>
+                <a href="#" class="px-6 py-2 rounded-full bg-gray-100 text-gray-600 font-medium text-sm hover:bg-gray-200 transition-colors hover:text-blue-600">Gear & Packing</a>
+                <a href="#" class="px-6 py-2 rounded-full bg-gray-100 text-gray-600 font-medium text-sm hover:bg-gray-200 transition-colors hover:text-blue-600">Inspiration</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Posts Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-gray-900 mb-12 flex items-center gap-3">
+                <ion-icon name="newspaper-outline" class="text-blue-600"></ion-icon> Latest Stories
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Card 1 -->
+                <article class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    <a href="post.html" class="block h-56 overflow-hidden relative">
+                         <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Travel">
+                         <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-blue-800 uppercase tracking-wide">Tips</span>
+                    </a>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            <span>Oct 12, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                            <a href="post.html">10 Packing Hacks for Long Trips</a>
+                        </h3>
+                        <p class="text-gray-500 line-clamp-3 mb-4">Pack lighter and smarter with these essential tips from seasoned travelers to make your journey smoother.</p>
+                        <a href="post.html" class="text-blue-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Read Article <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+                    </div>
+                </article>
+
+                 <!-- Blog Card 2 -->
+                 <article class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    <a href="post.html" class="block h-56 overflow-hidden relative">
+                         <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Beach">
+                         <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-orange-600 uppercase tracking-wide">Destinations</span>
+                    </a>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            <span>Sep 28, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                            <a href="post.html">Hidden Beaches of Southeast Asia</a>
+                        </h3>
+                        <p class="text-gray-500 line-clamp-3 mb-4">Discover the pristine sands and crystal clear waters that haven't been overrun by tourists yet.</p>
+                        <a href="post.html" class="text-blue-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Read Article <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+                    </div>
+                </article>
+
+                 <!-- Blog Card 3 -->
+                 <article class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    <a href="post.html" class="block h-56 overflow-hidden relative">
+                         <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Food">
+                         <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-yellow-600 uppercase tracking-wide">Food</span>
+                    </a>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            <span>Sep 15, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                            <a href="post.html">A Foodie's Guide to Italy</a>
+                        </h3>
+                        <p class="text-gray-500 line-clamp-3 mb-4">From pasta in Rome to pizza in Naples, here is your ultimate guide to eating your way through Italy.</p>
+                        <a href="post.html" class="text-blue-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Read Article <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 4 -->
+                <article class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    <a href="post.html" class="block h-56 overflow-hidden relative">
+                         <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Budget Travel">
+                         <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-green-600 uppercase tracking-wide">Budget</span>
+                    </a>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            <span>Aug 22, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                            <a href="post.html">Europe on a Shoestring Budget</a>
+                        </h3>
+                        <p class="text-gray-500 line-clamp-3 mb-4">You don't need a fortune to see Europe. Here are our top tips for saving money on transport and accommodation.</p>
+                        <a href="post.html" class="text-blue-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Read Article <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 5 -->
+                <article class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    <a href="post.html" class="block h-56 overflow-hidden relative">
+                         <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Solo Travel">
+                         <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-purple-600 uppercase tracking-wide">Inspiration</span>
+                    </a>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            <span>Aug 10, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                            <a href="post.html">Why Your Next Trip Should Be Solo</a>
+                        </h3>
+                        <p class="text-gray-500 line-clamp-3 mb-4">Discover the freedom, confidence, and personal growth that comes with traveling the world on your own terms.</p>
+                        <a href="post.html" class="text-blue-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Read Article <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Blog Card 6 -->
+                <article class="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+                    <a href="post.html" class="block h-56 overflow-hidden relative">
+                         <img src="https://images.unsplash.com/photo-1504198458649-3128b932f49e?q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Gear">
+                         <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-gray-700 uppercase tracking-wide">Gear</span>
+                    </a>
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 text-sm text-gray-500 mb-3">
+                            <ion-icon name="calendar-outline"></ion-icon>
+                            <span>Jul 05, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                            <a href="post.html">Top 5 Cameras for Travel Photography</a>
+                        </h3>
+                        <p class="text-gray-500 line-clamp-3 mb-4">Capture your memories in high quality with our roundup of the best travel-friendly cameras for every budget.</p>
+                        <a href="post.html" class="text-blue-600 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                            Read Article <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Pagination -->
+            <div class="flex justify-center mt-16">
+                <nav class="flex gap-2">
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-100 hover:text-blue-600 transition-colors">
+                        <ion-icon name="chevron-back-outline"></ion-icon>
+                    </a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg bg-blue-600 text-white font-bold shadow-md">1</a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-100 hover:text-blue-600 transition-colors">2</a>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-100 hover:text-blue-600 transition-colors">3</a>
+                    <span class="w-10 h-10 flex items-center justify-center text-gray-400">...</span>
+                    <a href="#" class="w-10 h-10 flex items-center justify-center rounded-lg border border-gray-300 text-gray-500 hover:bg-gray-100 hover:text-blue-600 transition-colors">
+                        <ion-icon name="chevron-forward-outline"></ion-icon>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="index.html" class="text-2xl font-bold text-white tracking-tight flex items-center gap-2 mb-6">
+                        <ion-icon name="airplane"></ion-icon> Wanderlust
+                    </a>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Making your travel dreams a reality with premium tours and unforgettable experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><ion-icon name="logo-twitter"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="hover:text-blue-500 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors text-white font-semibold">Blog</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Press</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Support</h4>
+                    <ul class="space-y-3">
+                        <li><a href="contact.html" class="hover:text-blue-500 transition-colors">Contact Us</a></li>
+                        <li><a href="terms.html" class="hover:text-blue-500 transition-colors">Terms of Service</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-500 transition-colors">Privacy Policy</a></li>
+                        <li><a href="faq.html" class="hover:text-blue-500 transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to get special offers and travel inspiration.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Your email" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2023 Wanderlust Inc. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="privacy.html" class="hover:text-white">Privacy</a>
+                    <a href="terms.html" class="hover:text-white">Terms</a>
+                    <a href="#" class="hover:text-white">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar Scroll Logic
+        const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-2');
+                navbar.querySelectorAll('a, span, button').forEach(el => {
+                    // check if element is inside nav and not special button
+                    if (el.closest('#navbar') && !el.classList.contains('bg-blue-600') && !el.classList.contains('bg-white/10') && !el.classList.contains('lang-option')) {
+                        el.classList.remove('text-white', 'text-white/90');
+                        el.classList.add('text-gray-800');
+                    }
+                });
+                navbar.querySelector('.text-2xl').classList.remove('text-white');
+                navbar.querySelector('.text-2xl').classList.add('text-blue-600');
+
+                // Mobile menu button color change
+                mobileMenuBtn.classList.remove('text-white');
+                mobileMenuBtn.classList.add('text-gray-800');
+
+                // Categories sticky effect adjustments if needed
+                const catBar = document.getElementById('categories-bar');
+                if(catBar && catBar.getBoundingClientRect().top <= navbar.offsetHeight) {
+                    // catBar.classList.add('shadow-md');
+                }
+
+            } else {
+                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-2');
+                navbar.querySelectorAll('a, span, button').forEach(el => {
+                     if (el.closest('#navbar') && !el.classList.contains('bg-blue-600') && !el.classList.contains('bg-white/10') && !el.classList.contains('lang-option')) {
+                        el.classList.add('text-white');
+                        el.classList.remove('text-gray-800');
+                     }
+                });
+                navbar.querySelector('.text-2xl').classList.add('text-white');
+                navbar.querySelector('.text-2xl').classList.remove('text-blue-600');
+
+                // Mobile menu button color reset
+                mobileMenuBtn.classList.add('text-white');
+                mobileMenuBtn.classList.remove('text-gray-800');
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+             mobileMenu.classList.add('translate-x-full');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+    </script>
+</body>
+</html>
