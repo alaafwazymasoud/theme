@@ -611,8 +611,10 @@
             // Hide/Show Navbar on Scroll
             if (currentScrollY > lastScrollY && currentScrollY > 100) {
                 navbar.classList.add('-translate-y-full');
+                if (stickyTabs) stickyTabs.style.top = '0px';
             } else {
                 navbar.classList.remove('-translate-y-full');
+                if (stickyTabs) stickyTabs.style.top = navbar.offsetHeight + 'px';
             }
             lastScrollY = currentScrollY;
 
@@ -651,8 +653,6 @@
             const heroHeight = document.querySelector('.relative.h-\\[60vh\\]').offsetHeight;
             if (window.scrollY > heroHeight - 100) { // Show slightly before
                  stickyTabs.classList.remove('hidden');
-                 // adjust position based on navbar height which is fixed
-                 stickyTabs.style.top = navbar.offsetHeight + 'px';
             } else {
                  stickyTabs.classList.add('hidden');
             }
