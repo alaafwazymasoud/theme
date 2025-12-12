@@ -29,8 +29,9 @@ const initCarousel = () => {
         const embla = EmblaCarousel(viewportNode, options, plugins);
 
         // Navigation buttons
-        const prevBtn = rootNode.querySelector('.embla__prev');
-        const nextBtn = rootNode.querySelector('.embla__next');
+        const container = rootNode.parentElement;
+        const prevBtn = container ? container.querySelector('.embla__prev') : null;
+        const nextBtn = container ? container.querySelector('.embla__next') : null;
 
         if (prevBtn && nextBtn) {
             const scrollPrev = () => embla.scrollPrev();
