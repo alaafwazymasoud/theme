@@ -122,6 +122,10 @@
                 <a href="#tour-map" class="tab-link hover:text-blue-600 transition-colors" data-target="tour-map">Tour Map</a>
                 <a href="#itinerary" class="tab-link hover:text-blue-600 transition-colors" data-target="itinerary">Itinerary</a>
                 <a href="#gallery" class="tab-link hover:text-blue-600 transition-colors" data-target="gallery">Gallery</a>
+                <a href="#faq" class="tab-link hover:text-blue-600 transition-colors" data-target="faq">FAQ</a>
+                <a href="#cancellation-policy" class="tab-link hover:text-blue-600 transition-colors" data-target="cancellation-policy">Cancellation</a>
+                <a href="#privacy" class="tab-link hover:text-blue-600 transition-colors" data-target="privacy">Privacy</a>
+                <a href="#terms" class="tab-link hover:text-blue-600 transition-colors" data-target="terms">Terms</a>
             </div>
         </div>
     </div>
@@ -337,6 +341,71 @@
                             </a>
                         </div>
                     </div>
+                </section>
+
+                <!-- FAQ -->
+                <section id="faq" class="scroll-mt-36">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">FAQ</h2>
+                    <div class="space-y-4">
+                        <!-- Item 1 -->
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left" onclick="toggleFaq(this)">
+                                <span class="font-bold text-gray-900">How do I book a tour?</span>
+                                <ion-icon name="chevron-down-outline" class="text-xl text-gray-400 transition-transform duration-300"></ion-icon>
+                            </button>
+                            <div class="hidden bg-white p-4 text-gray-500 leading-relaxed border-t border-gray-100">
+                                <p>Booking is easy! Simply select your preferred date and number of guests in the booking form on this page, and click the "Book Now" button. Follow the prompts to complete your reservation.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left" onclick="toggleFaq(this)">
+                                <span class="font-bold text-gray-900">Are flights included?</span>
+                                <ion-icon name="chevron-down-outline" class="text-xl text-gray-400 transition-transform duration-300"></ion-icon>
+                            </button>
+                            <div class="hidden bg-white p-4 text-gray-500 leading-relaxed border-t border-gray-100">
+                                <p>Generally, international flights are not included in our tour packages to give you the flexibility to choose your preferred airline and departure city. However, domestic flights within the tour destination may be included as specified in the itinerary.</p>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-4 bg-gray-50 hover:bg-gray-100 transition-colors text-left" onclick="toggleFaq(this)">
+                                <span class="font-bold text-gray-900">Are your tours suitable for children?</span>
+                                <ion-icon name="chevron-down-outline" class="text-xl text-gray-400 transition-transform duration-300"></ion-icon>
+                            </button>
+                            <div class="hidden bg-white p-4 text-gray-500 leading-relaxed border-t border-gray-100">
+                                <p>Many of our tours are family-friendly, but some may have age restrictions due to the nature of the activities. Please check the specific details on the tour page or contact us for more information.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Cancellation Policy -->
+                <section id="cancellation-policy" class="scroll-mt-36">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Cancellation Policy</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        We offer full refunds for cancellations made 60 days or more before departure. For cancellations made between 30 and 59 days, we offer a 50% refund. Unfortunately, we cannot offer refunds for cancellations made less than 30 days before the tour.
+                    </p>
+                </section>
+
+                <!-- Privacy Policy -->
+                <section id="privacy" class="scroll-mt-36">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Privacy Policy</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        We collect information that identifies, relates to, describes, references, is capable of being associated with, or could reasonably be linked, directly or indirectly, with a particular consumer or device. We do not sell, trade, or rent your personal identification information to others.
+                    </p>
+                    <a href="privacy.html" class="text-blue-600 font-semibold hover:underline">Read full Privacy Policy</a>
+                </section>
+
+                <!-- Terms -->
+                <section id="terms" class="scroll-mt-36">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Terms & Conditions</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        By accessing or using our website and services, you agree to be bound by our Terms of Service. All bookings are subject to availability and confirmation by Wanderlust. You are responsible for obtaining valid travel documents, such as passports and visas.
+                    </p>
+                    <a href="terms.html" class="text-blue-600 font-semibold hover:underline">Read full Terms of Service</a>
                 </section>
             </div>
 
@@ -594,6 +663,19 @@
             }
         }
 
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('ion-icon');
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
         // Navbar Scroll Logic
         const navbar = document.getElementById('navbar');
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -658,7 +740,7 @@
             }
 
             // Active Tab Highlight
-            const sections = ['overview', 'highlights', 'including', 'tour-map', 'itinerary', 'gallery'];
+            const sections = ['overview', 'highlights', 'including', 'tour-map', 'itinerary', 'gallery', 'faq', 'cancellation-policy', 'privacy', 'terms'];
             let currentSection = '';
 
             sections.forEach(section => {
