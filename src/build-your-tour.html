@@ -407,6 +407,22 @@
     </footer>
 
     <script>
+        // Navbar Scroll Logic
+        const navbar = document.getElementById('navbar');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+
+            // Hide/Show Navbar on Scroll
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                navbar.classList.add('-translate-y-full');
+            } else {
+                navbar.classList.remove('-translate-y-full');
+            }
+            lastScrollY = currentScrollY;
+        });
+
         // Mobile Menu Logic
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
