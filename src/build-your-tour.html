@@ -273,6 +273,108 @@
                                 </label>
                              </div>
                         </div>
+
+                        <!-- Landmarks Section -->
+                        <div class="mt-8">
+                            <label class="block text-lg font-bold text-gray-900 mb-3">Choose the landmarks, monuments and sites you want to visit</label>
+                            <div class="space-y-2 pl-1">
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" id="landmarks-select-all" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700 font-medium">Select All</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="landmarks" value="Abu Simbel" class="landmark-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Abu Simbel</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="landmarks" value="Colossi of Memnon" class="landmark-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Colossi of Memnon</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="landmarks" value="Egyptian Museum (Cairo)" class="landmark-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Egyptian Museum (Cairo)</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="landmarks" value="High Dam" class="landmark-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">High Dam</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="landmarks" value="Karnak Temple Complex" class="landmark-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Karnak Temple Complex</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="landmarks" value="Kom Ombo Temple" class="landmark-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Kom Ombo Temple</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="landmarks" value="Nubian Village" class="landmark-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Nubian Village</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="landmarks" value="Philae Temple" class="landmark-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Philae Temple</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="landmarks" value="Pyramids of Giza & Sphinx" class="landmark-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Pyramids of Giza & Sphinx</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="landmarks" value="Temple of Hatshepsut" class="landmark-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Temple of Hatshepsut</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="landmarks" value="Valley of the Kings" class="landmark-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Valley of the Kings</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Additional Sites -->
+                        <div class="mt-8">
+                            <label class="block text-lg font-bold text-gray-900 mb-1">Additional sites</label>
+                            <p class="text-sm text-gray-600 mb-2">Are there any additional sites you would like to visit not mentioned in the options above?</p>
+                            <input type="text" name="additional_sites" class="w-full px-4 py-3 rounded-xl bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                        </div>
+
+                        <!-- Additional Activities -->
+                        <div class="mt-8">
+                            <label class="block text-lg font-bold text-gray-900 mb-1">Additional activities</label>
+                            <p class="text-sm text-gray-600 mb-3">Select additional activities you would like to do on your tour:</p>
+                            <div class="space-y-2 pl-1">
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" id="activities-select-all" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700 font-medium">Select All</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="activities" value="Snorkeling" class="activity-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Snorkeling</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="activities" value="Felucca sailing" class="activity-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Felucca sailing</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="activities" value="Dahabiya sailing" class="activity-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Dahabiya sailing</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="activities" value="Nile River cruise" class="activity-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Nile River cruise</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="activities" value="Hot Air Balloon over Luxor" class="activity-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Hot Air Balloon over Luxor</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="activities" value="Karnak sound and light show" class="activity-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Karnak sound and light show</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1 rounded">
+                                    <input type="checkbox" name="activities" value="Horse and carriage ride" class="activity-item w-5 h-5 text-blue-600 rounded focus:ring-blue-500 border-gray-300">
+                                    <span class="text-gray-700">Horse and carriage ride</span>
+                                </label>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Step 4: Special Requirements -->
@@ -569,6 +671,36 @@
                  input.value = parseInt(input.value) - 1;
             }
         }
+
+        // Select All Logic
+        function setupSelectAll(selectAllId, itemClass) {
+            const selectAll = document.getElementById(selectAllId);
+            const items = document.querySelectorAll('.' + itemClass);
+
+            if (!selectAll || items.length === 0) return;
+
+            selectAll.addEventListener('change', () => {
+                items.forEach(item => {
+                    item.checked = selectAll.checked;
+                });
+            });
+
+            items.forEach(item => {
+                item.addEventListener('change', () => {
+                    if (!item.checked) {
+                        selectAll.checked = false;
+                    } else {
+                        const allChecked = Array.from(items).every(i => i.checked);
+                        if (allChecked) {
+                            selectAll.checked = true;
+                        }
+                    }
+                });
+            });
+        }
+
+        setupSelectAll('landmarks-select-all', 'landmark-item');
+        setupSelectAll('activities-select-all', 'activity-item');
     </script>
 </body>
 </html>
