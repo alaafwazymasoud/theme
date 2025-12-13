@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Ambassador Program - Wanderlust</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="../dist/output.css" rel="stylesheet">
+    <!-- Ionicons for minimal icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-40 top-0 left-0 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-white tracking-tight flex items-center gap-2 z-50 relative">
+                <ion-icon name="airplane"></ion-icon> Wanderlust
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8 text-white/90 text-sm font-medium">
+                <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                <a href="index.html#tours" class="hover:text-white transition-colors">Tours</a>
+                <a href="index.html#destinations" class="hover:text-white transition-colors">Destinations</a>
+                <a href="build-your-tour.html" class="hover:text-white transition-colors font-bold text-orange-400 hover:text-orange-300">Build Your Tour</a>
+                <a href="index.html#blog" class="hover:text-white transition-colors">Blog</a>
+            </div>
+            <div class="hidden md:flex items-center space-x-4">
+                <div class="relative group">
+                    <button class="flex items-center gap-1 text-white/90 hover:text-white transition-colors text-sm font-medium focus:outline-none">
+                        <ion-icon name="globe-outline" class="text-lg"></ion-icon>
+                        <span>EN</span>
+                        <ion-icon name="chevron-down-outline" class="text-xs"></ion-icon>
+                    </button>
+                    <!-- Dropdown -->
+                    <div class="absolute top-full right-0 mt-2 w-32 bg-white rounded-lg shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right z-50">
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 lang-option">English</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 lang-option">Español</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 lang-option">Français</a>
+                    </div>
+                </div>
+                <a href="#" class="text-white/90 font-medium text-sm hover:text-white">Log in</a>
+                <a href="#" class="bg-white/10 backdrop-blur-md text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-white hover:text-blue-600 transition-all border border-white/20">Sign up</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center z-50">
+                <button id="mobile-menu-btn" class="text-white text-3xl focus:outline-none">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-50 transform translate-x-full transition-transform duration-300 flex flex-col justify-center items-center space-y-8 md:hidden">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white text-4xl focus:outline-none">
+            <ion-icon name="close-outline"></ion-icon>
+        </button>
+        <a href="index.html" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Home</a>
+        <a href="index.html#tours" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Tours</a>
+        <a href="index.html#destinations" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Destinations</a>
+        <a href="build-your-tour.html" class="mobile-link text-2xl text-orange-400 font-medium hover:text-orange-300">Build Your Tour</a>
+        <a href="index.html#blog" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Blog</a>
+        <a href="#" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Log in</a>
+        <a href="#" class="mobile-link px-8 py-3 bg-blue-600 rounded-full text-white text-xl font-bold">Sign up</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative h-[60vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1568322445389-f64ac2515020?q=80&w=1920&auto=format&fit=crop"
+                 alt="Hero Background" class="w-full h-full object-cover">
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70"></div>
+        </div>
+
+        <div class="relative z-10 container mx-auto px-6 text-center mt-20">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+                Brand Ambassador <span class="text-orange-400">Program</span>
+            </h1>
+            <p class="text-lg md:text-xl text-white/90 max-w-2xl mx-auto font-light">
+                Collaborate with Wanderlust and share the magic of travel with the world.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+
+                <!-- Introduction -->
+                <section class="mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Become Our Brand Ambassador</h2>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Wanderlust is opening the door for all Journalists, Bloggers, Facebookers, Instagrammers, Tweeters, YouTubers, Videographers, Photographers, Vloggers, and Tiktokers to live a magical & thrilling adventure across our destinations for very affordable prices or even for free according to the conditions listed below. Experience the world with us and offer everyone a glimpse into the elements that make travel worthy of exploring to the fullest.
+                    </p>
+                </section>
+
+                <!-- Terms & Conditions -->
+                <section class="mb-12 bg-gray-50 p-8 rounded-2xl border border-gray-100">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Terms & Conditions to Become Our Brand Ambassador</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start gap-3">
+                            <ion-icon name="checkmark-circle" class="text-green-500 text-xl mt-1 flex-shrink-0"></ion-icon>
+                            <span><strong>Website Niche Travel:</strong> Monthly Organic Traffic More Than 40K Users.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <ion-icon name="checkmark-circle" class="text-green-500 text-xl mt-1 flex-shrink-0"></ion-icon>
+                            <span><strong>Website Niche News:</strong> Monthly Organic Traffic More Than 80K Users.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <ion-icon name="checkmark-circle" class="text-green-500 text-xl mt-1 flex-shrink-0"></ion-icon>
+                            <span><strong>Facebook Page:</strong> Followers 250K.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <ion-icon name="checkmark-circle" class="text-green-500 text-xl mt-1 flex-shrink-0"></ion-icon>
+                            <span><strong>Facebook Posts:</strong> Interactive at Least 1000 Likes.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <ion-icon name="checkmark-circle" class="text-green-500 text-xl mt-1 flex-shrink-0"></ion-icon>
+                            <span><strong>Instagram Page:</strong> Followers 250K Based on Country.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <ion-icon name="checkmark-circle" class="text-green-500 text-xl mt-1 flex-shrink-0"></ion-icon>
+                            <span><strong>Instagram Interactive:</strong> For Each Post more than 10K.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <ion-icon name="checkmark-circle" class="text-green-500 text-xl mt-1 flex-shrink-0"></ion-icon>
+                            <span><strong>YouTube Subscribers:</strong> At Least 250K.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <ion-icon name="checkmark-circle" class="text-green-500 text-xl mt-1 flex-shrink-0"></ion-icon>
+                            <span><strong>YouTube Interactive:</strong> Videos More Than 150K Watch.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <ion-icon name="checkmark-circle" class="text-green-500 text-xl mt-1 flex-shrink-0"></ion-icon>
+                            <span><strong>TikTok:</strong> More Than 2 Million Followers.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <ion-icon name="checkmark-circle" class="text-green-500 text-xl mt-1 flex-shrink-0"></ion-icon>
+                            <span><strong>TikTok:</strong> Each Video More Than 500K Watch.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <ion-icon name="checkmark-circle" class="text-green-500 text-xl mt-1 flex-shrink-0"></ion-icon>
+                            <span><strong>Twitter Followers:</strong> More Than 30K.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <ion-icon name="checkmark-circle" class="text-green-500 text-xl mt-1 flex-shrink-0"></ion-icon>
+                            <span><strong>Twitter Posts Interactive:</strong> More Than 500 Like or Retweet.</span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Offer -->
+                <section class="mb-12">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">The Offer</h3>
+                    <p class="text-gray-600 mb-4">
+                        If you are eligible for one or more of these terms, then you have the chance to win a total of four days of tour package free with us. The free tours, which you can choose from, include:
+                    </p>
+                    <ul class="list-disc pl-6 space-y-2 text-blue-600 mb-6">
+                        <li><a href="#" class="hover:underline">4 Days / 3 Nights Cairo Tour Package</a></li>
+                        <li><a href="#" class="hover:underline">4 Days / 3 Nights Nile River Cruise from Aswan to Luxor</a></li>
+                    </ul>
+                    <p class="text-gray-600 mb-4">
+                        If you wish to have another tour out of these two with more days then we would be happy to negotiate and offer a considerable discount as long as you fulfill one of all the terms mentioned above.
+                    </p>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+                        <p class="text-sm text-blue-800">
+                            <strong>Note:</strong> Before making any agreement of any kind all content creators must prove they are the authorized owners or the main operators of the targeted platform.
+                        </p>
+                    </div>
+                    <p class="text-gray-600">
+                        Send all your details to <a href="mailto:marketing@wanderlust.com" class="text-blue-600 font-bold hover:underline">marketing@wanderlust.com</a>
+                    </p>
+                </section>
+
+                <!-- Application Form -->
+                <section id="application-form" class="bg-white shadow-xl rounded-3xl p-8 md:p-12 border border-gray-100">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">Send Your Request Now</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Your Name*</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Email*</label>
+                                <input type="email" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                            </div>
+                            <div class="md:col-span-2">
+                                <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                                <input type="tel" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-100 pt-6">
+                            <h4 class="font-bold text-gray-900 mb-4">Your Social Links</h4>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Facebook</label>
+                                    <input type="url" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Twitter</label>
+                                    <input type="url" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Youtube</label>
+                                    <input type="url" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-1">Tiktok</label>
+                                    <input type="url" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Extra Note</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"></textarea>
+                        </div>
+
+                        <button type="button" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-blue-500/30 text-lg">
+                            Send an Inquiry
+                        </button>
+                    </form>
+
+                    <div class="mt-8 text-center pt-8 border-t border-gray-100">
+                        <p class="text-gray-600 mb-2">Do You Face an Issue to Send a Request?</p>
+                        <p class="font-bold text-gray-900">Send Your Request Directly to:</p>
+                        <div class="flex flex-col md:flex-row justify-center items-center gap-4 mt-4">
+                             <a href="tel:+1234567890" class="flex items-center gap-2 text-blue-600 font-medium hover:underline">
+                                <ion-icon name="call-outline"></ion-icon> (+20) 100 405 1515
+                             </a>
+                             <a href="mailto:Operation@wanderlust.com" class="flex items-center gap-2 text-blue-600 font-medium hover:underline">
+                                <ion-icon name="mail-outline"></ion-icon> Operation@wanderlust.com
+                             </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Testimonials -->
+                <section class="mt-20">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">Our Clients Feedback</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Review 1 -->
+                        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                             <div class="flex items-center gap-1 text-yellow-400 mb-3">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                             </div>
+                             <h4 class="font-bold text-gray-900 mb-2">My fiancé and I booked a private 5 day tour</h4>
+                             <p class="text-gray-600 text-sm mb-4">
+                                "The communication with Wanderlust was excellent. Very fast responses and they are very accommodating. Our tour was nonstop which was okay by us as we wanted to see all the sights in 4 days."
+                             </p>
+                             <div class="flex items-center justify-between">
+                                <span class="text-sm font-bold text-gray-900">Ariana C</span>
+                                <span class="text-xs text-gray-500">Feb 14, 2023</span>
+                             </div>
+                        </div>
+
+                         <!-- Review 2 -->
+                        <div class="bg-gray-50 p-6 rounded-2xl border border-gray-100">
+                             <div class="flex items-center gap-1 text-yellow-400 mb-3">
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                                <ion-icon name="star"></ion-icon>
+                             </div>
+                             <h4 class="font-bold text-gray-900 mb-2">Trip of a lifetime</h4>
+                             <p class="text-gray-600 text-sm mb-4">
+                                "This was the trip of a lifetime that I was able to have with my eldest son. To be able to actually see the places and artifacts that I had read about was truly phenomenal."
+                             </p>
+                             <div class="flex items-center justify-between">
+                                <span class="text-sm font-bold text-gray-900">L Joe Smith</span>
+                                <span class="text-xs text-gray-500">Feb 07, 2023</span>
+                             </div>
+                        </div>
+                    </div>
+                    <div class="text-center mt-8">
+                        <a href="#" class="text-blue-600 font-bold hover:underline">View All Reviews</a>
+                    </div>
+                </section>
+
+                <!-- FAQ Section -->
+                <section class="mt-20">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-10 text-center">Frequently Asked Questions</h3>
+                    <div class="space-y-4">
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-5 text-left bg-gray-50 hover:bg-gray-100 transition-colors focus:outline-none">
+                                <span class="font-bold text-gray-900">What Are the Finest Destinations to Visit?</span>
+                                <ion-icon name="chevron-down-outline" class="text-gray-500"></ion-icon>
+                            </button>
+                            <div class="p-5 text-gray-600 border-t border-gray-200">
+                                The entire country deserves to be explored but key highlights include Cairo's Pyramids, Luxor's Valley of the Kings, Aswan's Abu Simbel, and the Red Sea resorts.
+                            </div>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-5 text-left bg-gray-50 hover:bg-gray-100 transition-colors focus:outline-none">
+                                <span class="font-bold text-gray-900">What Are Visa Requirements?</span>
+                                <ion-icon name="chevron-down-outline" class="text-gray-500"></ion-icon>
+                            </button>
+                            <div class="p-5 text-gray-600 border-t border-gray-200 hidden">
+                                Many nationalities can get a visa on arrival or apply for an e-visa. Please check specific requirements for your country.
+                            </div>
+                        </div>
+
+                         <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-5 text-left bg-gray-50 hover:bg-gray-100 transition-colors focus:outline-none">
+                                <span class="font-bold text-gray-900">What is the Best Time to Visit?</span>
+                                <ion-icon name="chevron-down-outline" class="text-gray-500"></ion-icon>
+                            </button>
+                            <div class="p-5 text-gray-600 border-t border-gray-200 hidden">
+                                The best time to travel is during the winter from September to April as the climate becomes milder and pleasant.
+                            </div>
+                        </div>
+
+                         <div class="border border-gray-200 rounded-xl overflow-hidden">
+                            <button class="w-full flex justify-between items-center p-5 text-left bg-gray-50 hover:bg-gray-100 transition-colors focus:outline-none">
+                                <span class="font-bold text-gray-900">Is it Safe to Travel?</span>
+                                <ion-icon name="chevron-down-outline" class="text-gray-500"></ion-icon>
+                            </button>
+                            <div class="p-5 text-gray-600 border-t border-gray-200 hidden">
+                                Yes, it is generally very safe for tourists. Tourist police are present at all major sites and we prioritize your safety.
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="index.html" class="text-2xl font-bold text-white tracking-tight flex items-center gap-2 mb-6">
+                        <ion-icon name="airplane"></ion-icon> Wanderlust
+                    </a>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Making your travel dreams a reality with premium tours and unforgettable experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><ion-icon name="logo-twitter"></ion-icon></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="about.html" class="hover:text-blue-500 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Careers</a></li>
+                        <li><a href="index.html#blog" class="hover:text-blue-500 transition-colors">Blog</a></li>
+                        <li><a href="#" class="hover:text-blue-500 transition-colors">Press</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Support</h4>
+                    <ul class="space-y-3">
+                        <li><a href="contact.html" class="hover:text-blue-500 transition-colors">Contact Us</a></li>
+                        <li><a href="terms.html" class="hover:text-blue-500 transition-colors">Terms of Service</a></li>
+                        <li><a href="privacy.html" class="hover:text-blue-500 transition-colors">Privacy Policy</a></li>
+                        <li><a href="faq.html" class="hover:text-blue-500 transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-6">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe to get special offers and travel inspiration.</p>
+                    <form class="flex flex-col gap-3">
+                        <input type="email" placeholder="Your email" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500">
+                        <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2023 Wanderlust Inc. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="privacy.html" class="hover:text-white">Privacy</a>
+                    <a href="terms.html" class="hover:text-white">Terms</a>
+                    <a href="#" class="hover:text-white">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="fixed bottom-6 left-6 z-50 flex items-center justify-center">
+        <div class="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75"></div>
+        <a href="https://wa.me/" target="_blank" class="relative bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110 flex items-center justify-center">
+            <ion-icon name="logo-whatsapp" class="text-3xl"></ion-icon>
+        </a>
+    </div>
+
+    <script>
+        // Navbar Scroll Logic
+        const navbar = document.getElementById('navbar');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+
+            // Hide/Show Navbar on Scroll
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                navbar.classList.add('-translate-y-full');
+            } else {
+                navbar.classList.remove('-translate-y-full');
+            }
+            lastScrollY = currentScrollY;
+
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-2');
+                navbar.querySelectorAll('a, span, button').forEach(el => {
+                    if (el.closest('#navbar') && !el.classList.contains('bg-blue-600') && !el.classList.contains('bg-white/10') && !el.classList.contains('lang-option')) {
+                        el.classList.remove('text-white', 'text-white/90');
+                        el.classList.add('text-gray-800');
+                    }
+                });
+                navbar.querySelector('.text-2xl').classList.remove('text-white');
+                navbar.querySelector('.text-2xl').classList.add('text-blue-600');
+                mobileMenuBtn.classList.remove('text-white');
+                mobileMenuBtn.classList.add('text-gray-800');
+            } else {
+                navbar.classList.remove('bg-white/90', 'backdrop-blur-md', 'shadow-md', 'py-2');
+                navbar.querySelectorAll('a, span, button').forEach(el => {
+                     if (el.closest('#navbar') && !el.classList.contains('bg-blue-600') && !el.classList.contains('bg-white/10') && !el.classList.contains('lang-option')) {
+                        el.classList.add('text-white');
+                        el.classList.remove('text-gray-800');
+                     }
+                });
+                navbar.querySelector('.text-2xl').classList.add('text-white');
+                navbar.querySelector('.text-2xl').classList.remove('text-blue-600');
+                mobileMenuBtn.classList.add('text-white');
+                mobileMenuBtn.classList.remove('text-gray-800');
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+             mobileMenu.classList.add('translate-x-full');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        });
+
+        // FAQ Toggle
+        const faqButtons = document.querySelectorAll('button');
+        faqButtons.forEach(btn => {
+            if(btn.querySelector('ion-icon[name="chevron-down-outline"]') && !btn.closest('#navbar')) {
+                btn.addEventListener('click', () => {
+                    const content = btn.nextElementSibling;
+                    const icon = btn.querySelector('ion-icon');
+                    content.classList.toggle('hidden');
+                    if (content.classList.contains('hidden')) {
+                         icon.style.transform = 'rotate(0deg)';
+                    } else {
+                         icon.style.transform = 'rotate(180deg)';
+                    }
+                    // Animation for icon
+                    icon.style.transition = 'transform 0.3s ease';
+                });
+            }
+        });
+    </script>
+</body>
+</html>
