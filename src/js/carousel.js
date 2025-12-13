@@ -71,6 +71,28 @@ const initCarousel = () => {
         align: 'start',
         slidesToScroll: 1
     });
+
+    // TripAdvisor Reviews Carousel
+    createCarousel('#tripadvisor-reviews-carousel', {
+        loop: true,
+        align: 'start',
+        slidesToScroll: 1,
+        breakpoints: {
+            '(min-width: 768px)': { slidesToScroll: 1 },
+            '(min-width: 1024px)': { slidesToScroll: 1 }
+        }
+    });
+
+    // Google Reviews Carousel
+    createCarousel('#google-reviews-carousel', {
+        loop: true,
+        align: 'start',
+        slidesToScroll: 1,
+        breakpoints: {
+            '(min-width: 768px)': { slidesToScroll: 1 },
+            '(min-width: 1024px)': { slidesToScroll: 1 }
+        }
+    });
 };
 
 // Initialize when DOM is ready
