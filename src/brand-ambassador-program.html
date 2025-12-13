@@ -25,7 +25,21 @@
             <div class="hidden md:flex items-center space-x-8 text-white/90 text-sm font-medium">
                 <a href="index.html" class="hover:text-white transition-colors">Home</a>
                 <a href="index.html#tours" class="hover:text-white transition-colors">Tours</a>
-                <a href="index.html#destinations" class="hover:text-white transition-colors">Destinations</a>
+
+    <div class="relative group">
+        <button class="hover:text-white transition-colors flex items-center gap-1 focus:outline-none">
+            Destinations
+            <ion-icon name="chevron-down-outline" class="group-hover:rotate-180 transition-transform duration-300"></ion-icon>
+        </button>
+        <ul class="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden group-hover:block transition-all duration-300 z-50 text-left">
+            <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Paris</a></li>
+            <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Rome</a></li>
+            <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">Tokyo</a></li>
+            <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors">New York</a></li>
+        </ul>
+    </div>
+    <!-- Dropdown Menu -->
+
                 <a href="build-your-tour.html" class="hover:text-white transition-colors font-bold text-orange-400 hover:text-orange-300">Build Your Tour</a>
                 <a href="index.html#blog" class="hover:text-white transition-colors">Blog</a>
             </div>
@@ -63,7 +77,20 @@
         </button>
         <a href="index.html" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Home</a>
         <a href="index.html#tours" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Tours</a>
-        <a href="index.html#destinations" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Destinations</a>
+
+    <div class="mobile-dropdown w-full">
+        <button onclick="toggleMobileSubmenu(this)" class="mobile-link text-2xl text-white font-medium hover:text-blue-500 w-full flex items-center justify-between focus:outline-none">
+            Destinations
+            <ion-icon name="chevron-down-outline" class="transition-transform duration-300"></ion-icon>
+        </button>
+        <div class="hidden flex-col bg-white/10 rounded-lg mt-2 overflow-hidden transition-all duration-300">
+            <a href="#" class="block px-6 py-3 text-xl text-white/90 hover:text-white hover:bg-white/10 transition-colors">Paris</a>
+            <a href="#" class="block px-6 py-3 text-xl text-white/90 hover:text-white hover:bg-white/10 transition-colors">Rome</a>
+            <a href="#" class="block px-6 py-3 text-xl text-white/90 hover:text-white hover:bg-white/10 transition-colors">Tokyo</a>
+            <a href="#" class="block px-6 py-3 text-xl text-white/90 hover:text-white hover:bg-white/10 transition-colors">New York</a>
+        </div>
+    </div>
+
         <a href="build-your-tour.html" class="mobile-link text-2xl text-orange-400 font-medium hover:text-orange-300">Build Your Tour</a>
         <a href="index.html#blog" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Blog</a>
         <a href="#" class="mobile-link text-2xl text-white font-medium hover:text-blue-500">Log in</a>
@@ -492,6 +519,20 @@
                 });
             }
         });
+
+        function toggleMobileSubmenu(button) {
+            const submenu = button.nextElementSibling;
+            const icon = button.querySelector('ion-icon');
+            if (submenu.classList.contains('hidden')) {
+                submenu.classList.remove('hidden');
+                submenu.classList.add('block');
+                icon.setAttribute('name', 'chevron-up-outline');
+            } else {
+                submenu.classList.add('hidden');
+                submenu.classList.remove('block');
+                icon.setAttribute('name', 'chevron-down-outline');
+            }
+        }
     </script>
 </body>
 </html>
