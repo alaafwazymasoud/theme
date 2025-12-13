@@ -28,17 +28,15 @@ const initCarousel = () => {
 
         const embla = EmblaCarousel(viewportNode, options, plugins);
 
-        // Navigation buttons
-        const container = rootNode.parentElement;
-        const prevBtn = container ? container.querySelector('.embla__prev') : null;
-        const nextBtn = container ? container.querySelector('.embla__next') : null;
+        // Navigation buttons - look in the parent container
+        const parentContainer = rootNode.parentElement;
+        const prevBtn = parentContainer ? parentContainer.querySelector('.embla__prev') : null;
+        const nextBtn = parentContainer ? parentContainer.querySelector('.embla__next') : null;
 
         if (prevBtn && nextBtn) {
-            const scrollPrev = () => embla.scrollPrev();
-            const scrollNext = () => embla.scrollNext();
 
-            prevBtn.addEventListener('click', scrollPrev);
-            nextBtn.addEventListener('click', scrollNext);
+            prevBtn.addEventListener('click', embla.scrollPrev, false);
+            nextBtn.addEventListener('click', embla.scrollNext, false);
 
             const updateButtons = () => {
                 if (options.loop) return; // If loop is true, always enabled
