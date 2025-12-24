@@ -10,30 +10,22 @@ def verify_pages():
         cwd = os.getcwd()
         src_dir = os.path.join(cwd, 'src')
 
-        # Verify index.html
-        print("Verifying index.html...")
-        page.goto(f'file://{os.path.join(src_dir, "index.html")}')
-        page.screenshot(path='index.png', full_page=True)
+        # List of pages to verify
+        pages_to_verify = [
+            "index.html",
+            "category.html",
+            "destination.html",
+            "post.html",
+            "build-your-tour.html"
+        ]
 
-        # Verify category.html
-        print("Verifying category.html...")
-        page.goto(f'file://{os.path.join(src_dir, "category.html")}')
-        page.screenshot(path='category.png', full_page=True)
+        for filename in pages_to_verify:
+            print(f"Verifying {filename}...")
+            page.goto(f'file://{os.path.join(src_dir, filename)}')
 
-        # Verify destination.html
-        print("Verifying destination.html...")
-        page.goto(f'file://{os.path.join(src_dir, "destination.html")}')
-        page.screenshot(path='destination.png', full_page=True)
-
-        # Verify post.html
-        print("Verifying post.html...")
-        page.goto(f'file://{os.path.join(src_dir, "post.html")}')
-        page.screenshot(path='post.png', full_page=True)
-
-        # Verify build-your-tour.html
-        print("Verifying build-your-tour.html...")
-        page.goto(f'file://{os.path.join(src_dir, "build-your-tour.html")}')
-        page.screenshot(path='build-your-tour.png', full_page=True)
+            # Create screenshot filename
+            screenshot_name = os.path.splitext(filename)[0] + '.png'
+            page.screenshot(path=screenshot_name, full_page=True)
 
         browser.close()
         print("Verification complete. Screenshots saved.")
