@@ -1,42 +1,47 @@
-from playwright.sync_api import sync_playwright
+import asyncio
 import os
+from playwright.async_api import async_playwright
 
-def verify_pages():
-    with sync_playwright() as p:
-        browser = p.chromium.launch()
-        page = browser.new_page()
+async def verify_page(context, page_name, src_dir, output_dir):
+    print(f"Verifying {page_name}...")
+    page = await context.new_page()
+    try:
+        url = f'file://{os.path.join(src_dir, page_name)}'
+        await page.goto(url)
+        # Determine output path
+        screenshot_name = page_name.replace('.html', '.png')
+        output_path = os.path.join(output_dir, screenshot_name)
+        await page.screenshot(path=output_path, full_page=True)
+        print(f"Verified {page_name}")
+    finally:
+        await page.close()
 
-        # Get absolute path to src directory
+async def main():
+    async with async_playwright() as p:
+        browser = await p.chromium.launch()
+        context = await browser.new_context()
+
         cwd = os.getcwd()
         src_dir = os.path.join(cwd, 'src')
+        output_dir = os.path.join(cwd, 'verification')
 
-        # Verify index.html
-        print("Verifying index.html...")
-        page.goto(f'file://{os.path.join(src_dir, "index.html")}')
-        page.screenshot(path='index.png', full_page=True)
+        # Ensure output directory exists
+        if not os.path.exists(output_dir):
+            os.makedirs(output_dir)
 
-        # Verify category.html
-        print("Verifying category.html...")
-        page.goto(f'file://{os.path.join(src_dir, "category.html")}')
-        page.screenshot(path='category.png', full_page=True)
+        pages_to_verify = [
+            'index.html',
+            'category.html',
+            'destination.html',
+            'post.html',
+            'build-your-tour.html'
+        ]
 
-        # Verify destination.html
-        print("Verifying destination.html...")
-        page.goto(f'file://{os.path.join(src_dir, "destination.html")}')
-        page.screenshot(path='destination.png', full_page=True)
+        tasks = [verify_page(context, page, src_dir, output_dir) for page in pages_to_verify]
+        await asyncio.gather(*tasks)
 
-        # Verify post.html
-        print("Verifying post.html...")
-        page.goto(f'file://{os.path.join(src_dir, "post.html")}')
-        page.screenshot(path='post.png', full_page=True)
-
-        # Verify build-your-tour.html
-        print("Verifying build-your-tour.html...")
-        page.goto(f'file://{os.path.join(src_dir, "build-your-tour.html")}')
-        page.screenshot(path='build-your-tour.png', full_page=True)
-
-        browser.close()
-        print("Verification complete. Screenshots saved.")
+        await browser.close()
+        print("Verification complete. Screenshots saved to verification/ directory.")
 
 if __name__ == "__main__":
-    verify_pages()
+    asyncio.run(main())
